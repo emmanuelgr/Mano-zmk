@@ -11,7 +11,11 @@
 #   - board: nice_nano_v2
 #     shield: reviung41
 #
----
+
 include:
   - board: seeeduino_xiao_ble
-    shield: hummingbird
+    shield: mano_left
+  - board: seeeduino_xiao_ble
+    shield: mano_right
+  - board: seeeduino_xiao_ble
+    shield: settings_reset

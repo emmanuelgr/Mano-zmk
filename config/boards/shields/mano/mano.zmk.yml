@@ -1,0 +1,10 @@
+file_format: "1"
+id: mano
+name: Mano
+type: shield
+requires: [seeed_xiao]
+features:
+  - keys
+siblings:
+  - mano_left
+  - mano_right
