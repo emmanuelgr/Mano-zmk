@@ -1,9 +1,9 @@
 if SHIELD_MANO_RIGHT
 
 config ZMK_KEYBOARD_NAME
-    default "mano"
+    default "Mano Board"
 
-config ZMK_SPLIT_BLE_ROLE_CENTRAL
+config ZMK_SPLIT_ROLE_CENTRAL
 	default y
     
 endif
