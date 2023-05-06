@@ -29,7 +29,7 @@
 &kp EQUAL           &kp N1          &mt LSHFT N2    &mt LALT N3     &mt LCTRL N4    &mt LGUI N5                 &mt RGUI N6         &mt RCTRL N7    &mt RALT N8     &mt RSHFT N9    &kp N0          &kp MINUS     
 &kp ESC             &kp Q           &kp W           &kp E           &kp R           &kp T                       &kp Y               &kp U           &kp I           &kp O           &kp P           &kp BSPC       
 &kp TAB             &kp A           &kp S           &kp D           &kp F           &kp G                       &kp H               &kp J           &kp K           &kp L           &kp SEMICOLON   &kp RETURN           
-&kp LEFT_BRACKET    &kp Z           &kp X           &kp C           &kp V           &lt NAV B                   &lt SYS N           &kp M           &kp COMMA       &kp DOT         &kp SLASH       &kp RIGHT_BRACKET           
+&kp LEFT_BRACKET    &kp Z           &kp X           &kp C           &kp V           &lt NAV B                   &kp N               &kp M           &kp COMMA       &kp DOT         &kp SLASH       &kp RIGHT_BRACKET           
             >;
       
         };
