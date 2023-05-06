@@ -26,10 +26,10 @@
 //          |  -  |  Z  |  X  |  C   |  V   |  B   |                                           |  N   |  M    |  ,    |  .   |   /   |
 
             bindings = <
-&kp GRAVE       &kp N1          &mt LSHFT N2    &mt LALT N3     &mt LCTRL N4    &mt LGUI N5                 &mt RGUI N6         &mt RCTRL N7    &mt RALT N8     &mt RSHFT N9    &kp N0          &lt SYS BKSP     
-&kp ESC         &kp Q           &kp W           &kp E           &kp R           &kp T                       &kp Y               &kp U           &kp I           &kp O           &kp P           &kp BKSP       
-&kp TAB         &kp A           &kp S           &kp D           &kp F           &kp G                       &kp H               &kp J           &kp K           &kp L           &kp SEMICOLON   &kp RETURN           
-&kp BKSP        &kp Z           &kp X           &kp C           &kp V           &lt NAV B                   &lt NAV N           &kp M           &kp COMMA       &kp DOT         &kp FSLH        &kp SPACE           
+&kp EQUAL           &kp N1          &mt LSHFT N2    &mt LALT N3     &mt LCTRL N4    &mt LGUI N5                 &mt RGUI N6         &mt RCTRL N7    &mt RALT N8     &mt RSHFT N9    &kp N0          &kp MINUS     
+&kp ESC             &kp Q           &kp W           &kp E           &kp R           &kp T                       &kp Y               &kp U           &kp I           &kp O           &kp P           &kp BSPC       
+&kp TAB             &kp A           &kp S           &kp D           &kp F           &kp G                       &kp H               &kp J           &kp K           &kp L           &kp SEMICOLON   &kp RETURN           
+&kp LEFT_BRACKET    &kp Z           &kp X           &kp C           &kp V           &lt NAV B                   &lt SYS N           &kp M           &kp COMMA       &kp DOT         &kp SLASH       &kp RIGHT_BRACKET           
             >;
       
         };
@@ -37,10 +37,10 @@
         nav_layer {
 
             bindings = <
-&kp F1          &kp F2          &kp F3         &kp F4         &kp F5            &kp F6                      &kp F7              &kp F8          &kp F9          &kp F10         &kp F11             &kp F12 
-&kp K_VOL_UP    &trans          &trans         &trans         &trans            &trans                      &kp PG_UP           &kp HOME        &kp UP          &kp END         &trans              &trans      
-&kp K_VOL_DN    &kp LSHFT       &kp LALT       &kp LCTRL      &kp LGUI          &trans                      &kp PG_DN           &kp LEFT        &kp DOWN        &kp RIGHT       &kp SINGLE_QUOTE    &trans      
-&trans          &trans          &trans         &trans         &trans            &trans                      &trans              &trans          &trans          &trans          &kp BACKSLASH       &trans     
+&kp F1              &kp F2          &kp F3         &kp F4         &kp F5            &kp F6                      &kp F7              &kp F8          &kp F9          &kp F10         &kp F11             &kp F12 
+&kp GRAVE           &trans          &trans         &trans         &trans            &kp K_VOL_UP                &kp PG_UP           &kp HOME        &kp UP          &kp END         &trans              &kp DELETE      
+&trans              &kp LSHFT       &kp LALT       &kp LCTRL      &kp LGUI          &kp K_VOL_UP                &kp PG_DN           &kp LEFT        &kp DOWN        &kp RIGHT       &kp SINGLE_QUOTE    &trans      
+&trans              &trans          &trans         &trans         &trans            &trans                      &trans              &trans          &trans          &trans          &kp BACKSLASH       &trans     
             >;
         };
 
