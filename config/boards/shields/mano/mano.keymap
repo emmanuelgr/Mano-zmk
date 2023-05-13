@@ -11,7 +11,7 @@
   quick-tap-ms = <100>;
   global-quick-tap;
   flavor = "tap-preferred";
-  tapping-term-ms = <180>;
+  tapping-term-ms = <300>;
 };
 
 / {
@@ -26,10 +26,10 @@
 //          |  [  |  Z  |  X  |  C   |  V   |  B   |                                           |  N   |  M    |  ,    |  .   |   /   |   ]  |
 
             bindings = <
-&kp MINUS           &kp N1          &mt LSHFT N2    &mt LALT N3     &mt LCTRL N4    &mt LGUI N5                 &mt RGUI N6         &mt RCTRL N7    &mt RALT N8     &mt RSHFT N9    &kp N0          &kp EQUAL     
-&kp ESC             &kp Q           &kp W           &kp E           &kp R           &kp T                       &kp Y               &kp U           &kp I           &kp O           &kp P           &kp BSPC       
-&kp TAB             &kp A           &kp S           &kp D           &kp F           &kp G                       &kp H               &kp J           &kp K           &kp L           &kp SEMICOLON   &kp RETURN           
-&kp LEFT_BRACKET    &kp Z           &kp X           &kp C           &kp V           &lt NAV B                   &lt SYS N           &kp M           &kp COMMA       &kp DOT         &kp SLASH       &kp SPACE           
+&kp ESC             &kp N1          &mt LSHFT N2    &mt LALT N3     &mt LCTRL N4    &mt LGUI N5                 &mt RGUI N6         &mt RCTRL N7    &mt RALT N8     &mt RSHFT N9    &kp N0              &kp DELETE     
+&kp TAB             &kp Q           &kp W           &kp E           &kp R           &kp T                       &kp Y               &kp U           &kp I           &kp O           &kp P               &kp BSPC       
+&kp SPACE           &kp A           &kp S           &kp D           &kp F           &kp G                       &kp H               &kp J           &kp K           &kp L           &kp SEMICOLON       &kp RETURN           
+&kp LEFT_BRACKET    &kp Z           &kp X           &kp C           &kp V           &lt NAV B                   &lt SPACE N         &kp M           &kp COMMA       &kp DOT         &kp SLASH           &kp RIGHT_BRACKET           
             >;
       
         };
@@ -37,10 +37,10 @@
         nav_layer {
 
             bindings = <
-&kp F1              &kp F2          &kp F3          &kp F4         &kp F5           &kp F6                      &kp F7              &kp F8          &kp F9          &kp F10         &kp F11             &kp F12 
-&kp GRAVE           &kp K_VOL_UP    &trans          &trans         &trans           &trans                      &kp PG_UP           &kp HOME        &kp UP          &kp END         &trans              &kp DELETE      
-&trans              &kp C_VOL_DN    &kp LSHFT       &kp LALT       &kp LCTRL        &kp LGUI                    &kp PG_DN           &kp LEFT        &kp DOWN        &kp RIGHT       &kp SINGLE_QUOTE    &trans      
-&kp LEFT_BRACKET    &trans          &trans          &trans         &trans           &trans                      &trans              &trans          &trans          &trans          &kp BACKSLASH       &kp RIGHT_BRACKET     
+&kp F1              &kp F2          &kp F3          &kp F4          &kp F5          &kp F6                      &kp F7              &kp F8          &kp F9          &kp F10         &kp F11             &kp F12 
+&kp GRAVE           &kp K_VOL_UP    &none           &none           &none           &none                       &kp MINUS           &kp HOME        &kp UP          &kp END         &none               &kp DELETE      
+&none               &kp C_VOL_DN    &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                    &kp EQUAL           &kp LEFT        &kp DOWN        &kp RIGHT       &kp SINGLE_QUOTE    &none      
+&kp LEFT_BRACKET    &none           &none           &none           &none           &trans                      &kp SPACE           &none           &none           &none           &kp BACKSLASH       &kp RIGHT_BRACKET     
             >;
         };
 
@@ -48,10 +48,10 @@
         sys_layer {
             
             bindings = <
-&bt BT_CLR      &bt BT_PRV      &bt BT_NXT      &trans          &trans          &rgb_ug RGB_TOG             &rgb_ug RGB_TOG     &trans          &trans          &trans          &trans          &trans 
-&trans          &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &trans          &sys_reset                  &sys_reset          &trans          &trans          &trans          &trans          &trans 
-&trans          &trans          &trans          &trans          &trans          &bootloader                 &bootloader         &trans          &trans          &trans          &trans          &trans 
-&trans          &trans          &trans          &trans          &trans          &trans                      &trans              &trans          &trans          &trans          &trans          &trans
+&bt BT_CLR          &bt BT_PRV      &bt BT_NXT      &none           &none          &rgb_ug RGB_TOG              &rgb_ug RGB_TOG     &none          &none          &none          &none          &none 
+&none               &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &none          &sys_reset                   &sys_reset          &none          &none          &none          &none          &none 
+&none               &none           &none           &none           &none          &bootloader                  &bootloader         &none          &none          &none          &none          &none 
+&none               &none           &none           &none           &none          &none                        &trans              &none          &none          &none          &none          &none
             >;
         };  
 
