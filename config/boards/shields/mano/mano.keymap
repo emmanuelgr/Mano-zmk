@@ -4,57 +4,79 @@
 #include <dt-bindings/zmk/rgb.h>
 
 #define BASE 0
-#define NAV  1
-#define SYS  2
+#define ALT  1
+#define NAV  2
+#define SYS  3
 
 &mt {
-  quick-tap-ms = <100>;
-  global-quick-tap;
+  // quick-tap-ms = <100>;
+  // global-quick-tap;
   flavor = "tap-preferred";
-  tapping-term-ms = <350>;
+  tapping-term-ms = <450>;
 };
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-//          ------------------------------------------------------------------------------------------------------------
-//          |  -_ |  1  |  2  |  3   |  4   |  5   |                                           |  6   |  7    |  8    |  9   |   0   |  +=  |
-//          | ESC |  Q  |  W  |  E   |  R   |  T   |                                           |  Y   |  U    |  I    |  O   |   P   | BKSP |
-//          | TAB |  A  |  S  |  D   |  F   |  G   |                                           |  H   |  J    |  K    |  L   |   '   |  ENT |
-//          |  [  |  Z  |  X  |  C   |  V   |  B   |                                           |  N   |  M    |  ,    |  .   |   /   |   ]  |
 
+        default_layer {
             bindings = <
-&kp ESC             &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                      &kp N6              &kp N7          &kp N8          &kp N9          &kp N0              &kp DELETE     
-&kp TAB             &kp Q           &kp W           &kp E           &kp R           &kp T                       &kp Y               &kp U           &kp I           &kp O           &kp P               &kp BSPC       
-&kp SPACE           &kp A           &mt LSHFT S     &mt LALT D      &mt LCTRL F     &mt LGUI G                  &mt RGUI H          &mt RCTRL J     &mt RALT K      &mt RSHFT L     &kp SEMICOLON       &kp RETURN           
-&kp LEFT_BRACKET    &kp Z           &kp X           &kp C           &kp V           &lt NAV B                   &lt SPACE N         &kp M           &kp COMMA       &kp DOT         &kp SLASH           &kp RIGHT_BRACKET           
+&kp MINUS           &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                      &kp N6              &kp N7          &kp N8          &kp N9          &kp N0              &kp EQUAL     
+&kp ESC             &kp Q           &kp W           &kp E           &kp R           &kp T                       &kp Y               &kp U           &kp I           &kp O           &kp P               &kp BSPC       
+&kp SPACE           &kp A           &mt LSHFT S     &mt LALT D      &mt LCTRL F     &mt LGUI G                  &mt RGUI H          &mt RCTRL J     &mt RALT K      &mt RSHFT L     &kp SEMICOLON       &kp SPACE           
+&kp TAB             &kp Z           &kp X           &kp C           &kp V           &lt ALT B                   &lt NAV N           &kp M           &kp COMMA       &kp DOT         &kp SLASH           &kp RETURN           
             >;
       
         };
 
-        nav_layer {
+        alt_layer {
+            bindings = <
+&none               &none           &none           &none           &none           &none                       &none               &none           &none           &none           &none               &none
+&kp GRAVE           &none           &none           &none           &none           &none                       &none               &none           &none           &none           &none               &kp DELETE    
+&none               &none           &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                    &none               &kp LBKT        &kp RBKT        &none           &kp SINGLE_QUOTE    &trans    
+&none               &none           &none           &none           &none           &trans                      &none               &none           &none           &none           &kp BACKSLASH       &trans      
+            >;
+        };
 
+        nav_layer {
             bindings = <
 &kp F1              &kp F2          &kp F3          &kp F4          &kp F5          &kp F6                      &kp F7              &kp F8          &kp F9          &kp F10         &kp F11             &kp F12 
-&kp GRAVE           &kp K_VOL_UP    &none           &none           &none           &none                       &none               &kp HOME        &kp UP          &kp END         &none               &kp DELETE      
-&none               &kp C_VOL_DN    &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                    &none               &kp LEFT        &kp DOWN        &kp RIGHT       &kp SINGLE_QUOTE    &kp RETURN      
-&kp MINUS           &none           &none           &none           &none           &trans                      &kp SPACE           &none           &none           &none           &kp BACKSLASH       &kp EQUAL     
+&kp C_BRI_UP        &kp C_VOL_UP    &none           &none           &none           &none                       &none               &kp HOME        &kp UP          &kp END         &none               &trans      
+&kp C_BRI_DN        &kp C_VOL_DN    &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                    &none               &kp LEFT        &kp DOWN        &kp RIGHT       &none               &trans      
+&none               &none           &none           &none           &none           &none                       &trans              &none           &none           &none           &none               &trans  
             >;
         };
 
 
         sys_layer {
-            
             bindings = <
-&bt BT_CLR          &bt BT_PRV      &bt BT_NXT      &none           &none          &rgb_ug RGB_TOG              &rgb_ug RGB_TOG     &none          &none          &none          &none          &none 
-&none               &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &none          &sys_reset                   &sys_reset          &none          &none          &none          &none          &none 
-&none               &none           &none           &none           &none          &bootloader                  &bootloader         &none          &none          &none          &none          &none 
-&none               &none           &none           &none           &none          &none                        &trans              &none          &none          &none          &none          &none
+&bt BT_CLR          &bt BT_PRV      &bt BT_NXT      &none           &none          &rgb_ug RGB_TOG              &rgb_ug RGB_TOG     &none           &none          &none            &none               &none 
+&none               &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &none          &sys_reset                   &sys_reset          &none           &none          &none            &none               &none 
+&none               &none           &none           &none           &none          &bootloader                  &bootloader         &none           &none          &none            &none               &none 
+&none               &none           &none           &none           &none          &none                        &none               &none           &none          &none            &none               &none
             >;
-        };  
-
+        };
     };
 };
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
