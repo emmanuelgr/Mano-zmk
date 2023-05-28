@@ -50,8 +50,8 @@
                 key-positions = <20 21>;
                 bindings = <&kp RETURN>;
             };
-            combo_space2 {
-                timeout-ms = <75>;
+            combo_space_thumbs {
+                timeout-ms = <125>;
                 key-positions = <41 42>;
                 bindings = <&kp SPACE>;
             };
