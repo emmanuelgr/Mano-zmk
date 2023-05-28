@@ -71,7 +71,7 @@
 &none               &none           &none           &none           &none           &none                       &none               &none           &none           &none           &none               &none
 &kp GRAVE           &none           &none           &none           &none           &none                       &none               &none           &none           &none           &none               &kp DELETE    
 &none               &none           &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                    &none               &kp LBKT        &kp RBKT        &none           &kp SINGLE_QUOTE    &trans    
-&none               &none           &none           &none           &none           &trans                      &none               &none           &none           &none           &kp BACKSLASH       &trans      
+&none               &none           &none           &none           &none           &none                       &trans              &none           &none           &none           &kp BACKSLASH       &trans      
             >;
         };
 
@@ -80,39 +80,18 @@
 &kp F1              &kp F2          &kp F3          &kp F4          &kp F5          &kp F6                      &kp F7              &kp F8          &kp F9          &kp F10         &kp F11             &kp F12 
 &kp C_BRI_UP        &kp C_VOL_UP    &none           &none           &none           &none                       &none               &kp HOME        &kp UP          &kp END         &none               &trans      
 &kp C_BRI_DN        &kp C_VOL_DN    &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                    &none               &kp LEFT        &kp DOWN        &kp RIGHT       &none               &trans      
-&none               &none           &none           &none           &none           &none                       &trans              &none           &none           &none           &none               &trans  
+&none               &none           &none           &none           &none           &trans                      &none               &none           &none           &none           &none               &trans  
             >;
         };
 
 
         sys_layer {
             bindings = <
-&bt BT_CLR          &bt BT_PRV      &bt BT_NXT      &none           &none          &rgb_ug RGB_TOG              &rgb_ug RGB_TOG     &rgb_ug RGB_HUI     &rgb_ug RGB_SAI     &rgb_ug RGB_BRI     &none   &none 
-&none               &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &none          &sys_reset                   &sys_reset          &rgb_ug RGB_HUD     &rgb_ug RGB_SAD     &rgb_ug RGB_BRD     &none   &none 
-&none               &none           &none           &none           &none          &bootloader                  &bootloader         &none               &none               &none               &none   &none 
-&trans              &none           &none           &none           &none          &none                        &rgb_ug RGB_EFF     &none               &none               &none               &none   &none
+&none               &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &none          &none                        &none               &none           &rgb_ug RGB_HUI     &rgb_ug RGB_SAI     &rgb_ug RGB_BRI     &rgb_ug RGB_TOG
+&none               &none           &none           &none           &none          &none                        &none               &none           &rgb_ug RGB_HUD     &rgb_ug RGB_SAD     &rgb_ug RGB_BRD     &rgb_ug RGB_EFF
+&none               &none           &none           &none           &none          &bootloader                  &bootloader         &none           &none               &none               &none               &none
+&trans              &none           &none           &none           &none          &sys_reset                   &sys_reset          &none           &none               &none               &none               &none
             >;
         };
     };
 };
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
