@@ -52,7 +52,7 @@
             };
             combo_space2 {
                 timeout-ms = <50>;
-                key-positions = <42 43>;
+                key-positions = <41 42>;
                 bindings = <&kp SPACE>;
             };
     };
