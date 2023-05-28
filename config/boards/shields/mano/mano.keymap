@@ -22,32 +22,32 @@
 
             combo_esc {
                 timeout-ms = <50>;
-                key-positions = <26 27>;
+                key-positions = <14 15>;
                 bindings = <&kp ESC>;
             };
             combo_tab {
                 timeout-ms = <50>;
-                key-positions = <27 28>;
+                key-positions = <15 16>;
                 bindings = <&kp TAB>;
             };
             combo_backspace {
                 timeout-ms = <50>;
-                key-positions = <19 20>;
+                key-positions = <7 8>;
                 bindings = <&kp BSPC>;
             };
             combo_delete {
                 timeout-ms = <50>;
-                key-positions = <20 21>;
+                key-positions = <8 9>;
                 bindings = <&kp DEL>;
             };
             combo_space {
                 timeout-ms = <50>;
-                key-positions = <31 32>;
+                key-positions = <19 20>;
                 bindings = <&kp SPACE>;
             };
             combo_enter {
                 timeout-ms = <50>;
-                key-positions = <32 33>;
+                key-positions = <20 21>;
                 bindings = <&kp RETURN>;
             };
     };
