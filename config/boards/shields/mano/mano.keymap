@@ -116,12 +116,12 @@
             combo_R_home_indexmid {
                 timeout-ms = <50>;
                 key-positions = <19 20>;
-                bindings = <&kp RETURN>;
+                bindings = <&kp SPACE>;
             };
             combo_R_home_midring {
                 timeout-ms = <50>;
                 key-positions = <20 21>;
-                bindings = <&kp BSPC>;
+                bindings = <&kp RETURN>;
             };
             combo_R_down_indexmid {
                 timeout-ms = <50>;
