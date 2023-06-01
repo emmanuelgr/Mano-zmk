@@ -100,8 +100,8 @@
         right_layer {
             bindings = <
 &none               &none           &none           &none           &none            &none                       &kp CARET          &kp AMPS        &kp ASTRK       &kp LPAR        &kp RPAR            &kp PLUS   
-&none               &none           &none           &none           &none            &none                       &lt NAV N6         &lt ALT N7      &kp N8          &kp N9          &kp N0              &kp EQUAL
-&none               &none           &none           &none           &none            &none                       &none              &kp RBKT        &none           &none           &kp BACKSLAS        &none
+&none               &none           &none           &none           &none            &none                       &kp N6             &kp N7          &kp N8          &kp N9          &kp N0              &kp EQUAL
+&none               &none           &none           &none           &none            &none                       &none              &kp RBKT        &none           &none           &kp BACKSLASH       &none
 &none               &none           &none           &none           &none            &trans                      &none              &kp RBRC        &none           &none           &none               &none   
             >;
         };
@@ -111,8 +111,8 @@
             bindings = <
 &none               &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &none          &none                        &none               &none           &rgb_ug RGB_HUI     &rgb_ug RGB_SAI     &rgb_ug RGB_BRI     &rgb_ug RGB_TOG
 &none               &none           &none           &none           &none          &none                        &none               &none           &rgb_ug RGB_HUD     &rgb_ug RGB_SAD     &rgb_ug RGB_BRD     &rgb_ug RGB_EFF
-&none               &none           &none           &none           &none          &bootloader                  &bootloader         &none           &none               &none               &none               &none
-&trans              &none           &none           &none           &none          &sys_reset                   &sys_reset          &none           &none               &none               &none               &none
+&trans              &none           &none           &none           &none          &bootloader                  &bootloader         &none           &none               &none               &none               &none
+&none               &none           &none           &none           &none          &sys_reset                   &sys_reset          &none           &none               &none               &none               &none
             >;
         };
     };
