@@ -4,15 +4,16 @@
 #include <dt-bindings/zmk/rgb.h>
 
 #define BASE 0
-#define ALT  1
-#define NAV  2
-#define SYS  3
+#define NAV  1
+#define LSIDE  2
+#define RSIDE  3
+#define SYS  4
 
 &mt {
   // quick-tap-ms = <100>;
   // global-quick-tap;
   flavor = "tap-preferred";
-  tapping-term-ms = <250>;
+  tapping-term-ms = <225>;
 };
 
 / {
@@ -21,79 +22,8 @@
             compatible = "zmk,behavior-tap-dance";
             label = "tap dance Esc";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <225>;
             bindings = <&kp ESC>, <&kp GRAVE>;
-        };
-
-        tdQ: tap_dance_q {
-            compatible = "zmk,behavior-tap-dance";
-            label = "tap dance Q";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp Q>, <&kp N1>;
-        };
-        tdW: tap_dance_w {
-            compatible = "zmk,behavior-tap-dance";
-            label = "tap dance W";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp W>, <&kp N2>;
-        };
-        tdE: tap_dance_e {
-            compatible = "zmk,behavior-tap-dance";
-            label = "tap dance E";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp E>, <&kp N3>;
-        };
-        tdR: tap_dance_r {
-            compatible = "zmk,behavior-tap-dance";
-            label = "tap dance R";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp R>, <&kp N4>;
-        };
-        tdT: tap_dance_t {
-            compatible = "zmk,behavior-tap-dance";
-            label = "tap dance T";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp T>, <&kp N5>;
-        };
-        tdY: tap_dance_y {
-            compatible = "zmk,behavior-tap-dance";
-            label = "tap dance Y";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp Y>, <&kp N6>;
-        };
-        tdU: tap_dance_u {
-            compatible = "zmk,behavior-tap-dance";
-            label = "tap dance U";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp U>, <&kp N7>;
-        };
-        tdI: tap_dance_i {
-            compatible = "zmk,behavior-tap-dance";
-            label = "tap dance I";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp I>, <&kp N8>;
-        };
-        tdO: tap_dance_o {
-            compatible = "zmk,behavior-tap-dance";
-            label = "tap dance O";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp O>, <&kp N9>;
-        };
-        tdP: tap_dance_p {
-            compatible = "zmk,behavior-tap-dance";
-            label = "tap dance P";
-            #binding-cells = <0>;
-            tapping-term-ms = <250>;
-            bindings = <&kp P>, <&kp N0>;
         };
     };
 
@@ -141,21 +71,12 @@
 
         default_layer {
             bindings = <
-&kp MINUS           &tdQ            &tdW            &tdE            &tdR            &tdT                        &tdY                &tdU            &tdI            &tdO            &tdP                &kp EQUAL       
+&kp SPACE           &kp Q           &kp W           &kp E           &kp R           &kp T                       &kp Y               &kp U           &kp I           &kp O           &kp P               &kp BSPC 
 &tdEsc              &kp A           &mt LSHFT S     &mt LALT D      &mt LCTRL F     &mt LGUI G                  &mt RGUI H          &mt RCTRL J     &mt RALT K      &mt RSHFT L     &kp SEMICOLON       &kp SINGLE_QUOTE           
-&mo SYS             &kp Z           &kp X           &kp C           &kp V           &kp B                       &kp N               &kp M           &kp COMMA       &kp DOT         &kp SLASH           &kp BACKSLASH           
-&kp N1              &kp N2          &kp N3          &kp N4          &kp N5          &lt NAV BSPC                &lt ALT SPACE       &kp N6          &kp N7          &kp N8          &kp N9              &kp N0              
+&mo SYS             &kp Z           &kp X           &kp C           &kp V           &kp B                       &kp N               &kp M           &kp COMMA       &kp DOT         &kp SLASH           &kp BACKSLAS
+&kp MINUS           &kp N1          &kp N2          &kp N3          &kp N4          &lt NAV N5                  &lt ALT N6          &lt ALT N7      &kp N8          &kp N9          &kp N0              &kp EQUAL              
             >;
       
-        };
-
-        alt_layer {
-            bindings = <
-&none               &none           &none           &none           &none           &none                       &none               &none           &none           &none           &none               &none
-&none               &none           &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                    &none               &kp LBKT        &kp RBKT        &none           &kp SINGLE_QUOTE    &trans    
-&none               &none           &none           &none           &none           &none                       &trans              &none           &none           &none           &kp BACKSLASH       &trans      
-&kp GRAVE           &none           &none           &none           &none           &none                       &none               &none           &none           &none           &none               &kp DELETE    
-            >;
         };
 
         nav_layer {
@@ -164,6 +85,24 @@
 &kp C_BRI_DN        &kp C_VOL_DN    &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                    &none               &kp LEFT        &kp DOWN        &kp RIGHT       &kp PG_DN           &trans      
 &none               &none           &none           &none           &none           &trans                      &none               &none           &none           &none           &none               &trans  
 &kp F1              &kp F2          &kp F3          &kp F4          &kp F5          &kp F6                      &kp F7              &kp F8          &kp F9          &kp F10         &kp F11             &kp F12 
+            >;
+        };
+
+        left_layer {
+            bindings = <
+&kp UNDER           &kp EXCL        &kp AT_SIGN     &kp HASH        &kp DOLLAR      &kp PRCNT                   &none               &none           &none           &none           &none               &none
+&kp MINUS           &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                      &none               &none           &none           &none           &none               &none
+&none               &none           &none           &none           &kp LBKT        &none                       &none               &none           &none           &none           &none               &none
+&none               &none           &none           &none           &kp LBRC        &none                       &trans              &none           &none           &none           &none               &none
+            >;
+        };
+
+        right_layer {
+            bindings = <
+&none               &none           &none           &none           &none            &none                       &kp CARET          &kp AMPS        &kp ASTRK       &kp LPAR        &kp RPAR            &kp PLUS   
+&none               &none           &none           &none           &none            &none                       &lt NAV N6         &lt ALT N7      &kp N8          &kp N9          &kp N0              &kp EQUAL
+&none               &none           &none           &none           &none            &none                       &none              &kp RBKT        &none           &none           &none               &none
+&none               &none           &none           &none           &none            &trans                      &none              &kp RBRC        &none           &none           &none               &none   
             >;
         };
 
@@ -178,5 +117,3 @@
         };
     };
 };
-
-//LBKT                RBKT 
