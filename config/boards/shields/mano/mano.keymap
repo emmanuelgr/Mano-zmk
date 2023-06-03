@@ -13,7 +13,7 @@
   // quick-tap-ms = <100>;
   // global-quick-tap;
   flavor = "tap-preferred";
-  tapping-term-ms = <225>;
+  tapping-term-ms = <250>;
 };
 
 / {
