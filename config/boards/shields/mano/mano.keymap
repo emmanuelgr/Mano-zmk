@@ -63,6 +63,12 @@
                 key-positions = <32 33>;
                 bindings = <&kp DEL>;
             };
+
+            combo_R_thumb_1 {
+                timeout-ms = <50>;
+                key-positions = <31 43>;
+                bindings = <&kp SPACE>;
+            };
     };
     
     keymap {
