@@ -14,3 +14,7 @@ config ZMK_SPLIT
     default y
 
 endif
+
+
+config CONFIG_ZMK_BACKLIGHT_AUTO_OFF_IDL
+	default y
