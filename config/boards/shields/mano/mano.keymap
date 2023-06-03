@@ -100,9 +100,9 @@
 
         right_layer {
             bindings = <
-&none               &none           &none           &none           &none           &none                       &kp PG_UP           &kp HOME        &kp UP          &kp END         &none               &kp PLUS   
-&none               &none           &none           &none           &none           &none                       &kp PG_DN           &kp LEFT        &kp DOWN        &kp RIGHT       &kp SINGLE_QUOTE    &kp EQUAL
-&none               &none           &none           &none           &none           &none                       &none               &none           &none           &none           &kp BACKSLASH       &none
+&none               &none           &none           &none           &none           &none                       &kp PG_UP           &kp HOME        &kp UP          &kp END         &none               &none   
+&none               &none           &none           &none           &none           &none                       &kp PG_DN           &kp LEFT        &kp DOWN        &kp RIGHT       &kp SINGLE_QUOTE    &none
+&none               &none           &none           &none           &none           &none                       &none               &kp LBKT        &kp RBKT        &none           &kp BACKSLASH       &none
 &none               &kp LGUI        &kp LSHFT       &kp LALT        &kp LCTRL       &trans                      &none               &none           &none           &none           &none               &none   
             >;
         };
