@@ -4,10 +4,9 @@
 #include <dt-bindings/zmk/rgb.h>
 
 #define BASE 0
-#define NAV  1
-#define LSIDE  2
-#define RSIDE  3
-#define SYS  4
+#define LSIDE  1
+#define RSIDE  2
+#define SYS  3
 
 &mt {
   // quick-tap-ms = <100>;
@@ -66,8 +65,13 @@
 
             combo_R_thumb_1 {
                 timeout-ms = <50>;
-                key-positions = <31 43>;
+                key-positions = <30 42>;
                 bindings = <&kp SPACE>;
+            };
+            combo_R_thumb_2 {
+                timeout-ms = <50>;
+                key-positions = <31 43>;
+                bindings = <&kp RETURN>;
             };
     };
     
@@ -77,48 +81,39 @@
 
         default_layer {
             bindings = <
-&tdEsc              &kp Q           &kp W           &kp E           &kp R           &kp T                       &kp Y               &kp U           &kp I           &kp O           &kp P               &kp BSPC 
-&kp TAB             &kp A           &mt LSHFT S     &mt LALT D      &mt LCTRL F     &mt LGUI G                  &mt RGUI H          &mt RCTRL J     &mt RALT K      &mt RSHFT L     &kp SEMICOLON       &kp SINGLE_QUOTE           
-&mo SYS             &kp Z           &kp X           &kp C           &kp V           &kp B                       &kp N               &kp M           &kp COMMA       &kp DOT         &kp SLASH           &kp RETURN
-&kp LSHFT           &kp LALT        &kp LCTRL       &kp LGUI        &mo NAV         &lt RSIDE BSPC              &lt LSIDE SPACE     &mo NAV         &kp LEFT        &kp DOWN        &kp UP              &kp RIGHT              
+&kp ESC             &kp Q           &kp W           &kp E           &kp R           &kp T                       &kp Y               &kp U           &kp I           &kp O           &kp P               &kp BSPC 
+&kp TAB             &kp A           &kp S           &kp D           &kp F           &kp G                       &mt RGUI H          &kp J           &kp K           &kp L           &kp SEMICOLON       &kp RETURN           
+&lt SYS LBKT        &kp Z           &kp X           &kp C           &kp V           &kp B                       &kp N               &kp M           &kp COMMA       &kp DOT         &kp SLASH           &lt SYS RBKT
+&kp MINUS           &mt LGUI N1     &mt LSHFT N2    &mt LALT N3     &mt LCTRL N4    &lt RSIDE N5                &lt LSIDE N6        &mt RCTRL N7    &mt RALT N8     &mt RSHFT N9    &mt LGUI N0         &kp EQUAL        
             >;
       
         };
 
-        nav_layer {
-            bindings = <
-&kp C_BRI_UP        &kp C_VOL_UP    &none           &none           &none           &none                       &kp PG_UP           &kp HOME        &kp UP          &kp END         &kp PG_UP           &trans      
-&kp C_BRI_DN        &kp C_VOL_DN    &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                    &kp PG_DN           &kp LEFT        &kp DOWN        &kp RIGHT       &kp SINGLE_QUOTE    &trans      
-&kp F1              &kp F2          &kp F3          &kp F4          &kp F5          &kp F6                      &kp F7              &kp F8          &kp F9          &kp F10         &kp F11             &kp F12 
-&none               &none           &none           &none           &trans          &none                       &none               &trans          &none           &none           &none               &trans  
-            >;
-        };
-
         left_layer {
             bindings = <
-&kp UNDER           &kp EXCL        &kp AT_SIGN     &kp HASH        &kp DOLLAR      &kp PRCNT                   &none               &none           &none           &none           &none               &none
-&kp MINUS           &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                      &kp RGUI            &kp RCTRL       &kp RALT        &kp RSHFT       &none               &none
-&none               &none           &none           &kp LBRC        &kp LBKT        &kp LPAR                    &none               &none           &none           &none           &none               &none
-&none               &none           &none           &none           &none           &none                       &trans              &none           &none           &none           &none               &none
+&none               &none           &kp KP_N7       &kp KP_N8       &kp KP_N9       &kp KP_PLUS                 &none               &none           &none           &none           &none               &none
+&none               &none           &kp KP_N4       &kp KP_N5       &kp KP_N6       &kp KP_MINUS                &none               &none           &none           &none           &none               &none
+&none               &none           &kp KP_N1       &kp KP_N2       &kp KP_N3       &kp KP_MULTIPLY             &none               &none           &none           &none           &none               &none
+&none               &none           &none           &kp KP_DOT      &kp KP_N0       &kp KP_DIVIDE               &trans              &kp RCTRL       &kp RALT        &kp RSHFT       &kp RGUI            &none
             >;
         };
 
         right_layer {
             bindings = <
-&none               &none           &none           &none           &none           &none                       &kp CARET          &kp AMPS         &kp ASTRK       &kp LPAR        &kp RPAR            &kp PLUS   
-&none               &none           &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                    &kp N6             &kp N7           &kp N8          &kp N9          &kp N0              &kp EQUAL
-&none               &none           &none           &none           &none           &none                       &kp RPAR           &kp RBKT         &kp RBRC        &none           &kp BACKSLASH       &none
-&none               &none           &none           &none           &none           &trans                      &none              &none            &none           &none           &none               &none   
+&none               &none           &none           &none           &none           &none                       &kp PG_UP           &kp HOME        &kp UP          &kp END         &none               &kp PLUS   
+&none               &none           &none           &none           &none           &none                       &kp PG_DN           &kp LEFT        &kp DOWN        &kp RIGHT       &kp SINGLE_QUOTE    &kp EQUAL
+&none               &none           &none           &none           &none           &none                       &none               &none           &none           &none           &kp BACKSLASH       &none
+&none               &kp LGUI        &kp LSHFT       &kp LALT        &kp LCTRL       &trans                      &none               &none           &none           &none           &none               &none   
             >;
         };
 
 
         sys_layer {
             bindings = <
-&kp K_POWER         &none           &none           &none           &none           &none                       &none               &none           &rgb_ug RGB_HUI     &rgb_ug RGB_SAI     &rgb_ug RGB_BRI     &rgb_ug RGB_TOG
-&none               &none           &none           &none           &none           &none                       &none               &none           &rgb_ug RGB_HUD     &rgb_ug RGB_SAD     &rgb_ug RGB_BRD     &rgb_ug RGB_EFF
-&trans              &none           &none           &none           &none           &bootloader                 &bootloader         &none           &none               &none               &none               &none
-&bt BT_SEL 0        &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_CLR      &none           &sys_reset                  &sys_reset          &none           &none               &none               &none               &none
+&kp K_POWER         &none           &rgb_ug RGB_HUI  &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_TOG             &kp F1              &kp F2          &kp F3          &kp F4          &kp F5              &kp F6
+&none               &none           &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_EFF             &kp F7              &kp F8          &kp F9          &kp F10         &kp F11             &kp F12
+&trans              &none           &none           &none           &none           &bootloader                 &bootloader         &kp C_BRI_UP    &kp C_VOL_UP    &none           &none               &none
+&bt BT_SEL 0        &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_CLR      &none           &sys_reset                  &sys_reset          &kp C_BRI_DN    &kp C_VOL_DN    &none           &none               &none
             >;
         };
     };
