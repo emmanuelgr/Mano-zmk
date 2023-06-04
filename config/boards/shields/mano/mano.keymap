@@ -28,21 +28,21 @@
             compatible = "zmk,behavior-tap-dance";
             label = "tap dance J SPACE";
             #binding-cells = <0>;
-            tapping-term-ms = <275>;
+            tapping-term-ms = <375>;
             bindings = <&kp J>, <&kp SPACE>;
         };
         td_F: tap_dance_f {
             compatible = "zmk,behavior-tap-dance";
             label = "tap dance F SPACE";
             #binding-cells = <0>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <400>;
             bindings = <&kp F>, <&kp SPACE>;
         };
         td_6: tap_dance_6 {
             compatible = "zmk,behavior-tap-dance";
             label = "tap dance overload 6";
             #binding-cells = <0>;
-            tapping-term-ms = <240>;
+            tapping-term-ms = <260>;
             bindings = <&lt LSIDE SPACE>, <&kp N6>, <&kp CARET>;
         };
     };
