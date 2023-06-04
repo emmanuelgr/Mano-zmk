@@ -17,6 +17,17 @@
 
 / {
     behaviors {
+         lh_pht: left_hand_positional_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LEFT_POSITIONAL_HOLD_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <7 8 9 10 11 12 13>;    // <---[[right-hand keys]]
+        };
+
         td_Esc: tap_dance_esc {
             compatible = "zmk,behavior-tap-dance";
             label = "tap dance Esc";
@@ -103,7 +114,7 @@
         default_layer {
             bindings = <
 &kp ESC             &kp Q           &kp W           &kp E           &kp R           &kp T                       &kp Y               &kp U           &kp I           &kp O           &kp P               &kp BSPC 
-&kp TAB             &kp A           &kp S           &kp D           &td_F           &kp G                       &mt RGUI H          &td_J           &kp K           &kp L           &kp SEMICOLON       &kp RETURN           
+&kp TAB             &kp A           &lh_pht LSFT S  &kp D           &td_F           &kp G                       &mt RGUI H          &td_J           &kp K           &kp L           &kp SEMICOLON       &kp RETURN           
 &lt SYS LBKT        &kp Z           &kp X           &kp C           &kp V           &kp B                       &kp N               &kp M           &kp COMMA       &kp DOT         &kp SLASH           &lt SYS RBKT
 &kp MINUS           &mt LGUI N1     &mt LSHFT N2    &mt LALT N3     &mt LCTRL N4    &lt RSIDE N5                &td_6               &mt RCTRL N7    &mt RALT N8     &mt RSHFT N9    &mt LGUI N0         &kp EQUAL        
             >;
