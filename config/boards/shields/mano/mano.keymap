@@ -64,7 +64,7 @@
             label = "tap dance overload 6";
             #binding-cells = <0>;
             tapping-term-ms = <260>;
-            bindings = <&lt LSIDE SPACE>, <&kp N6>, <&kp CARET>;
+            bindings = <&lt LSIDE SPACE>, <&kp N6>;
         };
     };
 
@@ -105,15 +105,10 @@
                 bindings = <&kp DEL>;
             };
 
-            combo_R_thumb_1 {
+            combo_R_thumb_N_and_Six {
                 timeout-ms = <50>;
                 key-positions = <30 42>;
                 bindings = <&kp SPACE>;
-            };
-            combo_R_thumb_2 {
-                timeout-ms = <50>;
-                key-positions = <31 43>;
-                bindings = <&kp RETURN>;
             };
     };
     
