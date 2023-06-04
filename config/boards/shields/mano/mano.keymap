@@ -73,40 +73,49 @@
 
 
             combo_L_home_midring {
-                timeout-ms = <50>;
+                timeout-ms = <70>;
                 key-positions = <14 15>;
                 bindings = <&kp ESC>;
             };
             combo_L_home_indexmid {
-                timeout-ms = <50>;
+                timeout-ms = <70>;
                 key-positions = <15 16>;
                 bindings = <&kp TAB>;
             };
 
-
+            combo_R_up_indexmid {
+                timeout-ms = <70>;
+                key-positions = <7 8>;
+                bindings = <&kp BSPC>;
+            };
+            combo_R_up_midring {
+                timeout-ms = <70>;
+                key-positions = <8 9>;
+                bindings = <&kp DEL>;
+            };
             combo_R_home_indexmid {
-                timeout-ms = <50>;
+                timeout-ms = <70>;
                 key-positions = <19 20>;
                 bindings = <&kp SPACE>;
             };
             combo_R_home_midring {
-                timeout-ms = <50>;
+                timeout-ms = <70>;
                 key-positions = <20 21>;
                 bindings = <&kp RETURN>;
             };
-            combo_R_down_indexmid {
-                timeout-ms = <50>;
-                key-positions = <31 32>;
-                bindings = <&kp BSPC>;
-            };
-            combo_R_down_midring {
-                timeout-ms = <50>;
-                key-positions = <32 33>;
-                bindings = <&kp DEL>;
-            };
+//           combo_R_down_indexmid {
+//               timeout-ms = <70>;
+//               key-positions = <31 32>;
+//               bindings = <&kp BSPC>;
+//           };
+//           combo_R_down_midring {
+//               timeout-ms = <70>;
+//               key-positions = <32 33>;
+//               bindings = <&kp DEL>;
+//           };
 
             combo_R_thumb_N_and_Six {
-                timeout-ms = <50>;
+                timeout-ms = <70>;
                 key-positions = <30 42>;
                 bindings = <&kp SPACE>;
             };
