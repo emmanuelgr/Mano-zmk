@@ -9,7 +9,6 @@
 #define SYS  3
 
 &mt {
-  flavor = "tap-preferred";
   tapping-term-ms = <250>;
 };
 
@@ -57,12 +56,12 @@
             tapping-term-ms = <400>;
             bindings = <&kp F>, <&kp SPACE>;
         };
-        td_6: tap_dance_6 {
+        td_EQUAL: tap_dance_6 {
             compatible = "zmk,behavior-tap-dance";
             label = "tap dance overload 6";
             #binding-cells = <0>;
             tapping-term-ms = <260>;
-            bindings = <&lt LSIDE SPACE>, <&kp N6>;
+            bindings = <&lt LSIDE SPACE>, <&kp EQUAL>;
         };
     };
 
@@ -128,7 +127,7 @@
 &kp ESC             &kp Q           &kp W           &kp E           &kp R           &kp T                       &kp Y               &kp U           &kp I           &kp O           &kp P               &kp BSPC 
 &kp TAB             &kp A           &Lht LSFT S     &Lht LALT D     &Lht LCTRL F    &Lht LGUI G                 &Rht RGUI H         &Rht RCTRL J    &Rht RALT K     &Rht RSHFT L    &kp SEMICOLON       &kp RETURN           
 &lt SYS LBKT        &kp Z           &kp X           &kp C           &kp V           &kp B                       &kp N               &kp M           &kp COMMA       &kp DOT         &kp SLASH           &lt SYS RBKT
-&kp MINUS           &kp N1          &kp N2          &kp N3          &kp N4          &lt RSIDE N5                &td_6               &kp N7          &kp N8          &kp N9          &kp N0              &kp EQUAL        
+&kp N1              &kp N2          &kp N3          &kp N4          &kp N5          &lt RSIDE MINUS             &td_EQUAL           &kp N7          &kp N7          &kp N8          &kp N9              &kp N0                    
             >;
       
         };
