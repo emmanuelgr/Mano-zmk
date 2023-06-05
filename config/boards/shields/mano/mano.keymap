@@ -134,7 +134,7 @@
 &kp ESC             &kp Q           &kp W           &kp E           &kp R           &kp T                       &kp Y               &kp U           &kp I           &kp O           &kp P               &kp BSPC 
 &kp TAB             &kp A           &Lht LSFT S     &Lht LALT D     &Lht LCTRL F    &Lht LGUI G                 &Rht RGUI H         &Rht RCTRL J    &Rht RALT K     &Rht RSHFT L    &kp SEMICOLON       &kp RETURN           
 &lt SYS MINUS       &kp Z           &kp X           &kp C           &kp V           &kp B                       &kp N               &kp M           &kp COMMA       &kp DOT         &kp SLASH           &lt SYS EQUAL
-&kp N1              &kp N2          &kp N3          &kp N4          &kp N5          &td_lr                      &td_ll              &kp N6          &kp N7          &kp N8          &kp N9              &kp N0                    
+&kp N1              &kp N2          &kp N3          &kp N4          &kp N5          &lt RSIDE LBKT              &td_ll              &kp N6          &kp N7          &kp N8          &kp N9              &kp N0                    
             >;
       
         };
