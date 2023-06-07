@@ -9,7 +9,7 @@
 #define SYS  3
 
 &mt {
-  tapping-term-ms = <250>;
+  tapping-term-ms = <300>;
 };
 
 / {
@@ -18,7 +18,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "LEFT_POSITIONAL_HOLD_TAP";
             #binding-cells = <2>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <300>;
             quick-tap-ms = <0>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
@@ -27,7 +27,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "RIGHT_POSITIONAL_HOLD_TAP";
             #binding-cells = <2>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <300>;
             quick-tap-ms = <0>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
@@ -37,7 +37,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "tap dance Esc";
             #binding-cells = <0>;
-            tapping-term-ms = <250>;
+            tapping-term-ms = <300>;
             bindings = <&kp ESC>, <&kp GRAVE>;
         };
         td_J: tap_dance_j {
@@ -58,14 +58,14 @@
             compatible = "zmk,behavior-tap-dance";
             label = "tap dance overload left lower right key";
             #binding-cells = <0>;
-            tapping-term-ms = <260>;
+            tapping-term-ms = <300>;
             bindings = <&lt RSIDE BSPC>, <&kp LBKT>;
         };
         td_ll: tap_dance_L_lower_left {
             compatible = "zmk,behavior-tap-dance";
             label = "tap dance overload right lower left key";
             #binding-cells = <0>;
-            tapping-term-ms = <260>;
+            tapping-term-ms = <300>;
             bindings = <&lt LSIDE SPACE>, <&kp RBKT>;
         };
     };
