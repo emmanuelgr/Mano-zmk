@@ -129,29 +129,30 @@
 
         default_layer {
             bindings = <
-&lt SYS MINUS   &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                          &kp N6              &kp N7              &kp N8          &kp N9          &kp N0              &lt SYS EQUAL               
-&kp ESC         &kp Q           &kp W           &kp E           &kp R           &kp T                           &kp Y               &kp U               &kp I           &kp O           &kp P               &kp BSPC            
-&kp TAB         &kp A           &Lht LSFT S     &Lht LALT D     &Lht LCTRL F    &Lht LGUI G                     &Rht RGUI H         &td_J               &Rht RALT K     &Rht RSHFT L    &kp SEMICOLON       &kp RETURN                    
-&kp LBKT        &kp Z           &kp X           &kp C           &kp V           &lt RSIDE B                     &lt LSIDE N         &kp M               &kp COMMA       &kp DOT         &kp SLASH           &kp RBKT                 
+&lt SYS LBKT    &kp Q           &kp W           &kp E           &kp R           &kp T                           &kp Y               &kp U               &kp I           &kp O           &kp P               &kp RBKT
+&kp ESC         &kp A           &kp S           &kp D           &kp F           &kp G                           &kp H               &kp J               &kp K           &kp L           &kp SEMICOLON       &kp BSPC
+&kp TAB         &kp Z           &kp X           &kp C           &kp V           &kp B                           &kp N               &kp M               &kp COMMA       &kp DOT         &kp SLASH           &kp RETURN
+&kp LSFT        &kp LALT        &kp LCTRL       &kp LGUI        &kp MINUS       &lt RSIDE BSPC                  &lt LSIDE SPACE     &kp EQUAL           &kp LEFT        &kp DOWN        &kp UP              &kp RIGHT
+
             >;
       
         };
 
         left_layer {
             bindings = <
-&none           &none           &kp KP_N7       &kp KP_N8       &kp KP_N9       &kp KP_PLUS                     &none               &none               &none           &none           &none               &trans
-&kp GRAVE       &none           &kp KP_N4       &kp KP_N5       &kp KP_N6       &kp KP_MINUS                    &none               &none               &none           &none           &none               &none
-&kp TAB         &none           &kp KP_N1       &kp KP_N2       &kp KP_N3       &kp KP_MULTIPLY                 &kp RGUI            &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none               
+&none           &none           &none           &none           &none           &none                           &none               &none               &none           &none           &none               &none
+&kp GRAVE       &none           &none           &none           &none           &none                           &kp RGUI            &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none
+&kp TAB         &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                          &none               &none               &none           &none           &none               &none               
 &none           &none           &none           &kp KP_DOT      &kp KP_N0       &kp KP_DIVIDE                   &trans              &none               &none           &none           &none               &none
             >;
         };
-
+                
         right_layer {
             bindings = <
-&none           &none           &none           &none           &none           &none                           &none               &none               &none           &none           &none               &none                       
-&none           &none           &none           &none           &none           &none                           &kp PG_UP           &kp HOME            &kp UP          &kp END         &none               &kp DELETE                    
-&none           &none           &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                        &kp PG_DN           &kp LEFT            &kp DOWN        &kp RIGHT       &kp SINGLE_QUOTE    &kp RETURN          
-&none           &none           &none           &none           &none           &trans                          &none               &none               &none           &none           &kp BACKSLASH       &none           
+&none           &none           &none           &none           &none           &none                           &kp PG_UP           &kp HOME            &kp UP          &kp END         &none               &kp BACKSLASH                       
+&none           &none           &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                        &kp PG_DN           &kp LEFT            &kp DOWN        &kp RIGHT       &kp SINGLE_QUOTE    &kp DELETE                    
+&none           &none           &none           &none           &none           &none                           &kp N6              &kp N7              &kp N8          &kp N9          &kp N0              &kp RETURN          
+&none           &none           &none           &none           &none           &trans                          &none               &none               &none           &none           &none               &none           
             >;
         };
     
@@ -169,8 +170,8 @@
         num_layer {
             bindings = <
 &none           &none           &kp KP_N7       &kp KP_N8       &kp KP_N9       &kp KP_PLUS                     &none               &none               &none           &none           &none               &trans
-&kp GRAVE       &none           &kp KP_N4       &kp KP_N5       &kp KP_N6       &kp KP_MINUS                    &none               &none               &none           &none           &none               &none
-&kp TAB         &none           &kp KP_N1       &kp KP_N2       &kp KP_N3       &kp KP_MULTIPLY                 &kp RGUI            &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none               
+&kp GRAVE       &none           &kp KP_N4       &kp KP_N5       &kp KP_N6       &kp KP_MINUS                    &kp RGUI            &kp RCTRL           &kp RALT        &kp RSHFT           &none               &none
+&kp TAB         &none           &kp KP_N1       &kp KP_N2       &kp KP_N3       &kp KP_MULTIPLY                 &none               &none               &none           &none       &none               &none               
 &none           &none           &none           &kp KP_DOT      &kp KP_N0       &kp KP_DIVIDE                   &trans              &none               &none           &none           &none               &none
             >;
         };
