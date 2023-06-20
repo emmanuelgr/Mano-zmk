@@ -74,26 +74,26 @@
             compatible = "zmk,combos";
 
 
-            combo_esc {
+            combo_L_ringmiddle {
               timeout-ms = <70>;
-                key-positions = <26 27>;
+                key-positions = <14 15>;
                 bindings = <&kp ESC>;
             };
-            combo_tab {
+            combo_L_middleindex {
                 timeout-ms = <70>;
-                key-positions = <27 28>;
+                key-positions = <15 16>;
                 bindings = <&kp TAB>;
             };
 
-            combo_backspace {
+            combo_R_index_middle {
                 timeout-ms = <70>;
                 key-positions = <19 20>;
-                bindings = <&kp BSPC>;
+                bindings = <&kp SPACE>;
             };
-            combo_delete {
+            combo_R_middle_ring {
                 timeout-ms = <70>;
                 key-positions = <20 21>;
-                bindings = <&kp DEL>;
+                bindings = <&kp ENTER>;
             };
 //            combo_space {
 //                timeout-ms = <70>;
