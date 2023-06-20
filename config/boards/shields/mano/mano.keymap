@@ -130,9 +130,9 @@
         default_layer {
             bindings = <
 &kp LBKT        &kp Q           &kp W           &kp E           &kp R           &kp T                           &kp Y               &kp U               &kp I           &kp O           &kp P               &kp RBKT
-&kp TAB         &kp A           &kp S           &kp D           &kp F           &kp G                           &kp H               &kp J               &kp K           &kp L           &kp SEMICOLON       &kp BSPC
+&kp TAB         &kp A           &Lht LSFT S     &Lht LALT D     &Lht LCTRL F    &Lht LGUI G                     &Rht RGUI H         &Rht RCTRL J        &Rht RALT K     &Rht RSHFT L    &kp SEMICOLON       &kp BSPC
 &kp ESC         &kp Z           &kp X           &kp C           &kp V           &kp B                           &kp N               &kp M               &kp COMMA       &kp DOT         &kp SLASH           &kp RETURN
-&lt SYS MINUS   &kp LGUI        &kp LSFT        &kp LALT        &kp LCTRL       &lt RSIDE BSPC                  &lt LSIDE SPACE     &kp RCTRL           &kp RALT        &kp RSFT        &kp RGUI            &lt SYS EQUAL
+&lt SYS MINUS   &kp LGUI        &kp LSFT        &kp LALT        &kp LCTRL       &lt RSIDE BSPC                  &lt LSIDE SPACE     &kp LEFT            &kp DOWN        &kp UP          &kp RIGHT           &lt SYS EQUAL
 
             >;
       
@@ -140,19 +140,19 @@
 
         left_layer {
             bindings = <
-&kp GRAVE       &none           &none           &none           &none           &none                           &none               &none               &none           &none           &none               &none
-&none           &none           &none           &none           &none           &none                           &kp RGUI            &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none
-&kp MINUS       &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                          &none               &none               &none           &none           &none               &none               
-&none           &none           &none           &none           &none           &none                           &trans              &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none
+&kp MINUS       &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                          &none               &none               &none           &none           &none               &none
+&kp GRAVE       &none           &none           &none           &none           &none                           &kp RGUI            &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none
+&none           &none           &none           &none           &none           &none                           &none               &none               &none           &none           &none               &none               
+&none           &none           &none           &none           &none           &none                           &trans              &none               &none           &none           &none               &none
             >;
         };
                 
         right_layer {
             bindings = <
-&none           &none           &none           &none           &none           &none                           &kp PG_UP           &kp HOME            &kp UP          &kp END         &none               &kp BACKSLASH                       
-&none           &kp LGUI        &kp LSHFT       &kp LALT        &kp LCTRL       &none                           &kp PG_DN           &kp LEFT            &kp DOWN        &kp RIGHT       &kp SINGLE_QUOTE    &kp DELETE                    
-&none           &none           &none           &none           &none           &none                           &kp N6              &kp N7              &kp N8          &kp N9          &kp N0              &kp EQUAL          
-&none           &kp LGUI        &kp LSFT        &kp LALT        &kp LCTRL       &trans                          &none               &none               &none           &none           &none               &none           
+&none           &none           &none           &none           &none           &none                           &kp N6              &kp N7              &kp N8          &kp N9          &kp N0              &kp EQUAL
+&none           &none           &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                        &kp PG_UP           &kp HOME            &kp UP          &kp END         &kp SINGLE_QUOTE    &kp DELETE                                           
+&none           &none           &none           &none           &none           &none                           &kp PG_DN           &kp LEFT            &kp DOWN        &kp RIGHT       &kp BACKSLASH       &none               
+&none           &none           &none           &none           &none           &trans                          &none               &none               &none           &none           &none               &none           
             >;
         };
     
@@ -173,6 +173,15 @@
 &kp GRAVE       &none           &kp KP_N4       &kp KP_N5       &kp KP_N6       &kp KP_MINUS                    &kp RGUI            &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none
 &kp TAB         &none           &kp KP_N1       &kp KP_N2       &kp KP_N3       &kp KP_MULTIPLY                 &none               &none               &none           &none           &none               &none               
 &none           &none           &none           &kp KP_DOT      &kp KP_N0       &kp KP_DIVIDE                   &trans              &none               &none           &none           &none               &none
+            >;
+        };
+
+        aaa {
+            bindings = <
+&none           &none           &none           &none           &none           &none                           &kp PG_UP           &kp HOME            &kp UP          &kp END         &none               &kp BACKSLASH                       
+&none           &kp LGUI        &kp LSHFT       &kp LALT        &kp LCTRL       &none                           &kp PG_DN           &kp LEFT            &kp DOWN        &kp RIGHT       &kp SINGLE_QUOTE    &kp DELETE                    
+&none           &none           &none           &none           &none           &none                           &kp N6              &kp N7              &kp N8          &kp N9          &kp N0              &kp EQUAL          
+&none           &none           &none           &none           &none           &trans                          &none               &none               &none           &none           &none               &none           
             >;
         };
     };
