@@ -7,6 +7,7 @@
 #define LSIDE  1
 #define RSIDE  2
 #define SYS  3
+#define NAV  4
 
 &mt {
   tapping-term-ms = <500>;
@@ -115,12 +116,12 @@
 //               key-positions = <32 33>;
 //               bindings = <&kp DEL>;
 //           };
-
-            combo_j {
-                timeout-ms = <70>;
-                key-positions = <30 31>;
-                bindings = <&kp J>;
-            };
+//
+//            combo_j {
+//                timeout-ms = <70>;
+//                key-positions = <30 31>;
+//                bindings = <&kp J>;
+//            };
     };
     
     keymap {
@@ -132,7 +133,7 @@
 &kp LBKT        &kp Q           &kp W           &kp E           &kp R           &kp T                           &kp Y               &kp U               &kp I           &kp O           &kp P               &kp RBKT
 &kp TAB         &kp A           &Lht LSFT S     &Lht LALT D     &Lht LCTRL F    &Lht LGUI G                     &Rht RGUI H         &Rht RCTRL J        &Rht RALT K     &Rht RSHFT L    &kp SEMICOLON       &kp BSPC
 &kp ESC         &kp Z           &kp X           &kp C           &kp V           &kp B                           &kp N               &kp M               &kp COMMA       &kp DOT         &kp SLASH           &kp RETURN
-&lt SYS MINUS   &kp LGUI        &kp LSFT        &kp LALT        &kp LCTRL       &lt RSIDE BSPC                  &lt LSIDE SPACE     &kp LEFT            &kp DOWN        &kp UP          &kp RIGHT           &lt SYS EQUAL
+&kp LSFT        &kp LALT        &kp LCTRL       &kp LGUI        &lt NAV MINUS   &lt RSIDE BSPC                  &lt LSIDE SPACE     &lt SYS EQUAL       &kp LEFT        &kp DOWN        &kp UP              &kp RIGHT
 
             >;
       
@@ -140,8 +141,8 @@
 
         left_layer {
             bindings = <
-&kp MINUS       &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                          &none               &none               &none           &none           &none               &none
-&kp GRAVE       &none           &none           &none           &none           &none                           &kp RGUI            &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none
+&kp F1          &kp F2          &kp F3          &kp F4          &kp F5          &kp F6                          &none               &none               &none           &none           &none               &none
+&kp GRAVE       &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                          &kp RGUI            &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none
 &none           &none           &none           &none           &none           &none                           &none               &none               &none           &none           &none               &none               
 &none           &none           &none           &none           &none           &none                           &trans              &none               &none           &none           &none               &none
             >;
@@ -149,20 +150,29 @@
                 
         right_layer {
             bindings = <
-&none           &none           &none           &none           &none           &none                           &kp N6              &kp N7              &kp N8          &kp N9          &kp N0              &kp EQUAL
-&none           &none           &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                        &kp PG_UP           &kp HOME            &kp UP          &kp END         &kp SINGLE_QUOTE    &kp DELETE                                           
-&none           &none           &none           &none           &none           &none                           &kp PG_DN           &kp LEFT            &kp DOWN        &kp RIGHT       &kp BACKSLASH       &none               
+&none           &none           &none           &none           &none           &none                           &kp F7              &kp F8              &kp F9          &kp F10         &kp F11             &kp F12
+&none           &none           &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                        &kp N6              &kp N7              &kp N8          &kp N9          &kp N0              &kp DELETE                                           
+&none           &none           &none           &none           &none           &none                           &none               &none               &none           &none           &kp BACKSLASH       &kp SINGLE_QUOTE
 &none           &none           &none           &none           &none           &trans                          &none               &none               &none           &none           &none               &none           
             >;
         };
-    
+
+        nav_layer {
+            bindings = <
+&none           &none           &none           &none           &none           &none                           &kp PG_UP           &kp HOME            &kp UP          &kp END         &none               &none                       
+&none           &kp LGUI        &kp LSHFT       &kp LALT        &kp LCTRL       &none                           &kp PG_DN           &kp LEFT            &kp DOWN        &kp RIGHT       &kp SINGLE_QUOTE    &kp BSPC                    
+&none           &none           &none           &none           &none           &none                           &none               &none               &none           &none           &none               &none           
+&none           &none           &none           &none           &trans          &none                           &none               &none               &none           &none           &none               &none           
+            >;
+        };
+    };    
 
         sys_layer {
             bindings = <
-&none               &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_TOG &none                      &kp F1              &kp F2              &kp F3          &kp F4          &kp F5               &kp F6
-&kp K_POWER         &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_EFF &none                      &kp F7              &kp F8              &kp F9          &kp F10         &kp F11              &kp F12
+&none               &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_TOG &none                      &none               &none               &none           &none           &none                &none
+&kp K_POWER         &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_EFF &sys_reset                 &sys_reset          &none               &none           &none           &none                &none
 &none               &none           &none           &none           &none           &bootloader                &bootloader         &kp C_BRI_UP        &kp C_VOL_UP    &none           &none                &none
-&trans              &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_CLR      &sys_reset                 &sys_reset          &kp C_BRI_DN        &kp C_VOL_DN    &none           &none                &none
+&trans              &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_CLR      &none                      &none               &kp C_BRI_DN        &kp C_VOL_DN    &none           &none                &none
             >;
         };
 
@@ -176,13 +186,5 @@
             >;
         };
 
-        aaa {
-            bindings = <
-&none           &none           &none           &none           &none           &none                           &kp PG_UP           &kp HOME            &kp UP          &kp END         &none               &kp BACKSLASH                       
-&none           &kp LGUI        &kp LSHFT       &kp LALT        &kp LCTRL       &none                           &kp PG_DN           &kp LEFT            &kp DOWN        &kp RIGHT       &kp SINGLE_QUOTE    &kp DELETE                    
-&none           &none           &none           &none           &none           &none                           &kp N6              &kp N7              &kp N8          &kp N9          &kp N0              &kp EQUAL          
-&none           &none           &none           &none           &none           &trans                          &none               &none               &none           &none           &none               &none           
-            >;
-        };
-    };
+
 };
