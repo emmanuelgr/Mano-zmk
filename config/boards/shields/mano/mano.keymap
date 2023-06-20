@@ -6,8 +6,8 @@
 #define BASE 0
 #define LSIDE  1
 #define RSIDE  2
-#define SYS  3
-#define NAV  4
+#define NAV  3
+#define SYS  4
 
 &mt {
   tapping-term-ms = <500>;
