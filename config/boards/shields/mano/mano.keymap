@@ -7,7 +7,8 @@
 #define LSIDE  1
 #define RSIDE  2
 #define NAV  3
-#define SYS  4
+#define NUM  4
+#define SYS  5
 
 &mt {
   tapping-term-ms = <500>;
@@ -130,10 +131,10 @@
 
         default_layer {
             bindings = <
-&kp LBKT        &kp Q           &kp W           &kp E           &kp R           &kp T                           &kp Y               &kp U               &kp I           &kp O           &kp P               &kp RBKT
+&lt SYS LBKT    &kp Q           &kp W           &kp E           &kp R           &kp T                           &kp Y               &kp U               &kp I           &kp O           &kp P               &lt SYS RBKT
 &kp TAB         &kp A           &Lht LSFT S     &Lht LALT D     &Lht LCTRL F    &Lht LGUI G                     &Rht RGUI H         &Rht RCTRL J        &Rht RALT K     &Rht RSHFT L    &kp SEMICOLON       &kp BSPC
 &kp ESC         &kp Z           &kp X           &kp C           &kp V           &kp B                           &kp N               &kp M               &kp COMMA       &kp DOT         &kp SLASH           &kp RETURN
-&kp LSFT        &kp LALT        &kp LCTRL       &kp LGUI        &lt NAV MINUS   &lt RSIDE BSPC                  &lt LSIDE SPACE     &lt SYS EQUAL       &kp LEFT        &kp DOWN        &kp UP              &kp RIGHT
+&kp LSFT        &kp LALT        &kp LCTRL       &kp LGUI        &lt NAV MINUS   &lt RSIDE BSPC                  &lt LSIDE SPACE     &lt NUM EQUAL       &kp LEFT        &kp DOWN        &kp UP              &kp RIGHT
             >;
         };
 
@@ -164,24 +165,22 @@
             >;
         };
 
-        sys_layer {
-            bindings = <
-&none           &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_TOG &none                           &none               &kp C_BRI_UP        &kp C_VOL_UP    &none           &none               &none
-&kp K_POWER     &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_EFF &sys_reset                      &sys_reset          &kp C_BRI_DN        &kp C_VOL_DN    &none           &none               &none
-&none           &none           &none           &none           &none           &bootloader                     &bootloader         &none               &none           &none           &none               &none
-&none           &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_CLR      &none                           &none               &trans              &none           &none           &none               &none
-            >;
-        };
-
-
         num_layer {
             bindings = <
-&none           &none           &kp KP_N7       &kp KP_N8       &kp KP_N9       &kp KP_PLUS                     &none               &none               &none           &none           &none               &trans
-&kp GRAVE       &none           &kp KP_N4       &kp KP_N5       &kp KP_N6       &kp KP_MINUS                    &kp RGUI            &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none
-&kp TAB         &none           &kp KP_N1       &kp KP_N2       &kp KP_N3       &kp KP_MULTIPLY                 &none               &none               &none           &none           &none               &none               
-&none           &none           &none           &kp KP_DOT      &kp KP_N0       &kp KP_DIVIDE                   &trans              &none               &none           &none           &none               &none
+&none           &none           &kp KP_N7       &kp KP_N8       &kp KP_N9       &kp KP_PLUS                     &none               &none               &none           &none           &none               &none
+&none           &none           &kp KP_N4       &kp KP_N5       &kp KP_N6       &kp KP_MINUS                    &kp RGUI            &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none
+&none           &none           &kp KP_N1       &kp KP_N2       &kp KP_N3       &kp KP_MULTIPLY                 &none               &none               &none           &none           &none               &none               
+&none           &none           &none           &kp KP_DOT      &kp KP_N0       &kp KP_DIVIDE                   &none               &trans              &none           &none           &none               &none
             >;
         };
 
+        sys_layer {
+            bindings = <
+&trans          &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI &rgb_ug RGB_TOG &none                           &none               &kp C_BRI_UP        &kp C_VOL_UP    &none           &none               &trans
+&kp K_POWER     &rgb_ug RGB_HUD &rgb_ug RGB_SAD &rgb_ug RGB_BRD &rgb_ug RGB_EFF &sys_reset                      &sys_reset          &kp C_BRI_DN        &kp C_VOL_DN    &none           &none               &none
+&none           &none           &none           &none           &none           &bootloader                     &bootloader         &none               &none           &none           &none               &none
+&none           &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_CLR      &none                           &none               &none               &none           &none           &none               &none
+            >;
+        };
     };
 };
