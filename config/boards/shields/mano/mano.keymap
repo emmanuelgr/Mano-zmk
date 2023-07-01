@@ -75,28 +75,52 @@
      combos {
             compatible = "zmk,combos";
 
-
-            combo_L_ringmiddle {
+// Firtst Row
+            combo_firstRow_L_ringmiddle {
               timeout-ms = <70>;
-                key-positions = <14 15>;
+                key-positions = <2 3>;
                 bindings = <&kp ESC>;
             };
-            combo_L_middleindex {
+            combo_firstRow_L_middleindex {
                 timeout-ms = <70>;
-                key-positions = <15 16>;
+                key-positions = <3 4>;
                 bindings = <&kp TAB>;
             };
 
-            combo_R_index_middle {
+
+            combo_firstRow_R_index_middle {
                 timeout-ms = <70>;
-                key-positions = <19 20>;
-                bindings = <&kp SPACE>;
-            };
-            combo_R_middle_ring {
-                timeout-ms = <70>;
-                key-positions = <20 21>;
+                key-positions = <7 8>;
                 bindings = <&kp ENTER>;
             };
+            combo_firstRow_R_middle_ring {
+                timeout-ms = <70>;
+                key-positions = <8 9>;
+                bindings = <&kp BSPC>;
+            };
+            
+// Second Row - these will colide with home row modifiers
+//            combo_secondRow_L_ringmiddle {
+//              timeout-ms = <70>;
+//                key-positions = <14 15>;
+//                bindings = <&kp ESC>;
+//            };
+//            combo_secondRow_L_middleindex {
+//                timeout-ms = <70>;
+//                key-positions = <15 16>;
+//                bindings = <&kp TAB>;
+//            };
+//
+//            combo_secondRow_R_index_middle {
+//                timeout-ms = <70>;
+//                key-positions = <19 20>;
+//                bindings = <&kp SPACE>;
+//            };
+//            combo_secondRow_R_middle_ring {
+//                timeout-ms = <70>;
+//                key-positions = <20 21>;
+//                bindings = <&kp ENTER>;
+//            };
 //            combo_space {
 //                timeout-ms = <70>;
 //                key-positions = <31 32>;
@@ -143,7 +167,7 @@
 &kp F1          &kp F2          &kp F3          &kp F4          &kp F5          &kp F6                          &none               &none               &none           &none           &none               &none
 &kp GRAVE       &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                          &kp RGUI            &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none
 &none           &none           &none           &none           &none           &none                           &none               &none               &none           &none           &none               &none               
-&none           &none           &none           &none           &none           &none                           &trans              &none               &none           &none           &none               &none
+&none           &none           &none           &none           &none           &kp DELETE                      &trans              &none               &none           &none           &none               &none
             >;
         };
                 
