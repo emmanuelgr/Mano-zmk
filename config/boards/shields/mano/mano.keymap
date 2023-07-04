@@ -159,7 +159,7 @@
         default_layer {
             bindings = <
 &lt SYS LBKT    &kp Q           &kp W           &kp E           &kp R           &kp T                           &kp Y               &kp U               &kp I           &kp O           &kp P               &lt SYS RBKT
-&kp TAB         &kp A           &Lht LSFT S     &Lht LALT D     &td_F           &Lht LGUI G                     &Rht RGUI H         &td_J               &Rht RALT K     &Rht RSHFT L    &kp SEMICOLON       &kp BSPC
+&kp TAB         &kp A           &Lht LSFT S     &Lht LALT D     &td_F           &Lht LGUI G                     &Rht RGUI H         &td_J               &Rht RALT K     &Rht RSHFT L    &kp SEMICOLON       &kp APOS
 &kp ESC         &kp Z           &kp X           &kp C           &kp V           &kp B                           &kp N               &kp M               &kp COMMA       &kp DOT         &kp SLASH           &kp RETURN
 &kp LSFT        &kp LALT        &kp LCTRL       &kp LGUI        &lt NAV MINUS   &lt RSIDE BSPC                  &lt LSIDE SPACE     &lt NUM EQUAL       &kp LEFT        &kp DOWN        &kp UP              &kp RIGHT
             >;
@@ -177,9 +177,9 @@
         right_layer {
             bindings = <
 &none           &none           &none           &none           &none           &none                           &kp F7              &kp F8              &kp F9          &kp F10         &kp F11             &kp F12
-&none           &none           &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                        &kp N6              &kp N7              &kp N8          &kp N9          &kp N0              &kp DELETE                                           
-&none           &none           &none           &none           &none           &none                           &none               &kp BACKSLASH       &kp APOS        &none           &kp BACKSLASH       &kp APOS
-&none           &none           &none           &none           &none           &trans                          &none               &none               &none           &none           &none               &none           
+&none           &none           &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                        &kp N6              &kp N7              &kp N8          &kp N9          &kp N0              &none                                              
+&none           &none           &none           &none           &none           &none                           &none               &none               &none           &none           &kp BACKSLASH       &none   
+&none           &none           &none           &none           &none           &trans                          &kp TAB             &none               &none           &none           &none               &none           
             >;
         };
 
