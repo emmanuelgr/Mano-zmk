@@ -16,11 +16,11 @@
 
 / {
     behaviors {
-         Lht: left_hand_positional_hold_tap {
+        Lht: left_hand_positional_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             label = "LEFT_POSITIONAL_HOLD_TAP";
             #binding-cells = <2>;
-            tapping-term-ms = <750>;
+            tapping-term-ms = <500>;
             quick-tap-ms = <0>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
@@ -29,7 +29,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "RIGHT_POSITIONAL_HOLD_TAP";
             #binding-cells = <2>;
-            tapping-term-ms = <750>;
+            tapping-term-ms = <500>;
             quick-tap-ms = <0>;
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
