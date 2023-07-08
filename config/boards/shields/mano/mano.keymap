@@ -48,7 +48,7 @@
             label = "tap dance J";
             #binding-cells = <0>;
             tapping-term-ms = <375>;
-            bindings = <&Rht RCTRL J>, <&kp ENTER>;
+            bindings = <&Rht RCTRL J>, <&kp ESC>;
         };
         td_lr: tap_dance_R_lower_right {
             compatible = "zmk,behavior-tap-dance";
@@ -152,27 +152,27 @@
         default_layer {
             bindings = <
 &lt SYS LBKT    &kp Q           &kp W           &kp E           &kp R           &kp T                           &kp Y               &kp U               &kp I           &kp O           &kp P               &lt SYS RBKT
-&kp TAB         &kp A           &Lht LSFT S     &Lht LALT D     &Lht LCTRL F    &Lht LGUI G                     &Rht RGUI H         &td_J               &Rht RALT K     &Rht RSHFT L    &kp SEMICOLON       &kp APOS
-&kp ESC         &kp Z           &kp X           &kp C           &kp V           &kp B                           &kp N               &kp M               &kp COMMA       &kp DOT         &kp SLASH           &kp RETURN
-&kp LSFT        &kp LALT        &kp LCTRL       &kp LGUI        &lt NAV MINUS   &lt RSIDE BSPC                  &lt LSIDE SPACE     &lt NUM EQUAL       &kp LEFT        &kp DOWN        &kp UP              &kp RIGHT
+&kp GRAVE       &kp A           &Lht LSFT S     &Lht LALT D     &Lht LCTRL F    &Lht LGUI G                     &Rht RGUI H         &td_J               &Rht RALT K     &Rht RSHFT L    &kp SEMICOLON       &kp APOS
+&kp BACKSLASH   &kp Z           &kp X           &kp C           &kp V           &kp B                           &kp N               &kp M               &kp COMMA       &kp DOT         &kp SLASH           &kp RETURN
+&kp LSFT        &kp LALT        &kp LCTRL       &kp LGUI        &lt NAV MINUS   &lt RSIDE TAB                   &lt LSIDE SPACE     &lt NUM EQUAL       &kp LEFT        &kp DOWN        &kp UP              &kp RIGHT
             >;
         };
 
         left_layer {
             bindings = <
-&kp F1          &kp F2          &kp F3          &kp F4          &kp F5          &kp F6                          &none               &none               &none           &none           &none               &none
-&kp GRAVE       &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                          &kp RGUI            &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none
+&kp ESC         &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                          &none               &none               &none           &none           &none               &none
+&kp TAB         &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                          &kp RGUI            &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none
 &none           &none           &none           &none           &none           &none                           &none               &none               &none           &none           &none               &none               
-&none           &none           &none           &none           &none           &kp DELETE                      &trans              &none               &none           &none           &none               &none
+&none           &none           &none           &none           &none           &kp ESC                         &trans              &none               &none           &none           &none               &none
             >;
         };
                 
         right_layer {
             bindings = <
-&none           &none           &none           &none           &none           &none                           &kp F7              &kp F8              &kp F9          &kp F10         &kp F11             &kp F12
-&none           &none           &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                        &kp N6              &kp N7              &kp N8          &kp N9          &kp N0              &none                                              
-&none           &none           &none           &none           &none           &none                           &none               &none               &none           &none           &kp BACKSLASH       &none   
-&none           &none           &none           &none           &none           &trans                          &kp TAB             &none               &none           &none           &none               &none           
+&none           &none           &none           &none           &none           &none                           &kp F6              &kp F7              &kp F8          &kp F9          &kp F10             &kp DELETE            
+&none           &none           &kp LSHFT       &kp LALT        &kp LCTRL       &kp LGUI                        &kp N6              &kp N7              &kp N8          &kp N9          &kp N0              &kp BSPC                                              
+&none           &none           &none           &none           &none           &none                           &kp F11             &kp F12             &none           &none           &none               &kp RETURN
+&none           &none           &none           &none           &none           &trans                          &kp RETURN          &none               &none           &none           &none               &none           
             >;
         };
 
