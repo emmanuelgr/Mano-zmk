@@ -158,25 +158,25 @@
 
         default_layer {
             bindings = <
-&lt SYS ESC     &kp Q           &kp W           &kp E           &kp R           &kp T                           &kp Y               &kp U               &kp I           &kp O           &kp P               &lt SYS BSPC
+&lt SYS LBKT    &kp Q           &kp W           &kp E           &kp R           &kp T                           &kp Y               &kp U               &kp I           &kp O           &kp P               &lt SYS RBKT 
 &kp TAB         &kp A           &Lht LSFT S     &Lht LALT D     &Lht LCTRL F    &kp G                           &kp H               &td_J               &td_K           &Rht RSHFT L    &kp SEMICOLON       &kp APOS 
-&kp LBKT        &kp Z           &kp X           &kp C           &Lht LGUI V     &kp B                           &kp N               &Rht RGUI M         &kp COMMA       &kp DOT         &kp SLASH           &kp RETURN
-&kp LSFT        &kp LALT        &kp LCTRL       &kp LGUI        &lt NAV MINUS   &lt RSIDE DELETE                &lt LSIDE SPACE     &lt NUM EQUAL       &kp LEFT        &kp DOWN        &kp UP              &kp RIGHT
+&kp ESC         &kp Z           &kp X           &kp C           &Lht LGUI V     &kp B                           &kp N               &Rht RGUI M         &kp COMMA       &kp DOT         &kp SLASH           &kp RETURN
+&kp LSFT        &kp LALT        &kp LCTRL       &kp LGUI        &lt NAV MINUS   &lt RSIDE BSPC                  &lt LSIDE SPACE     &lt NUM EQUAL       &kp LEFT        &kp DOWN        &kp UP              &kp RIGHT
             >;
         };
 
         left_layer {
             bindings = <
-&kp GRAVE       &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                          &none               &none               &none           &none           &none               &none        
-&none           &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                          &none               &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none        
-&kp RBKT        &kp F11         &kp F12         &kp LBRC        &kp LBKT        &none                           &none               &kp RGUI            &none           &none           &none               &none               
-&none           &none           &none           &none           &none           &none                           &trans              &none               &none           &none           &none               &none
+&none           &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                          &none               &none               &none           &none           &none               &none        
+&kp GRAVE       &kp N1          &kp N2          &kp N3          &kp N4          &kp N5                          &none               &kp RCTRL           &kp RALT        &kp RSHFT       &none               &none        
+&none           &kp F11         &kp F12         &kp LBRC        &kp LBKT        &none                           &none               &kp RGUI            &none           &none           &none               &none               
+&none           &none           &none           &none           &none           &kp DELETE                      &trans              &none               &none           &none           &none               &none
             >;
         };
                 
         right_layer {
             bindings = <
-&none           &none           &none           &none           &none           &none                           &kp F6              &kp F7              &kp F8          &kp F9          &kp F10             &kp DEL               
+&none           &none           &none           &none           &none           &none                           &kp F6              &kp F7              &kp F8          &kp F9          &kp F10             &none               
 &none           &none           &kp LSHFT       &kp LALT        &kp LCTRL       &none                           &kp N6              &kp N7              &kp N8          &kp N9          &kp N0              &kp BACKSLASH                                     
 &none           &none           &none           &none           &kp LGUI        &none                           &none               &kp RBKT            &kp RBRC        &none           &none               &none
 &none           &none           &none           &none           &none           &trans                          &none               &none               &none           &none           &none               &none           
