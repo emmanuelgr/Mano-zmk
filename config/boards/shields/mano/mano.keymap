@@ -10,10 +10,6 @@
 #define NUM  4
 #define SYS  5
 
-&mt {
-  tapping-term-ms = <200>;
-};
-
 / {
     behaviors {
         Lht: left_hand_positional_hold_tap {
