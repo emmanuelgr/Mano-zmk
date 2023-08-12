@@ -174,8 +174,8 @@
             bindings = <
 &none           &none           &none           &none           &none           &none                           &kp F7              &kp F8              &kp F9          &kp F10         &kp F11             &kp F12                   
 &none           &none           &kp LSHFT       &kp LALT        &kp LCTRL       &none                           &kp N6              &kp N7              &kp N8          &kp N9          &kp N0              &kp EQUAL                                   
-&none           &none           &none           &none           &kp LGUI        &none                           &none               &none               &none           &none           &kp BACKSLASH       &none
-&none           &none           &none           &none           &none           &trans                          &none               &none               &none           &none           &none               &none           
+&none           &none           &none           &none           &kp LGUI        &none                           &none               &none               &none           &none           &none               &kp BACKSLASH       
+&none           &none           &none           &none           &none           &trans                          &kp TAB             &none               &none           &none           &none               &none           
             >;
         };
 
