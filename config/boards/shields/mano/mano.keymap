@@ -153,11 +153,12 @@
 
 
         default_layer {
-            bindings = <
-&lt SYS LBKT    &kp Q           &kp W           &kp E           &kp R           &kp T                           &kp Y               &kp U               &kp I           &kp O           &kp P               &lt SYS RBKT 
-&kp TAB         &kp A           &Lht LSFT S     &Lht LALT D     &Lht LCTRL F    &kp G                           &kp H               &td_J               &td_K           &Rht RSHFT L    &kp SEMICOLON       &kp APOS 
-&kp ESC         &kp Z           &kp X           &kp C           &Lht LGUI V     &kp B                           &kp N               &Rht RGUI M         &kp COMMA       &kp DOT         &kp SLASH           &kp RETURN
-&kp N1          &kp N2          &kp N3          &kp N4          &lt NAV N5      &lt RSIDE BSPC                  &lt LSIDE SPACE     &lt NUM N6          &kp N7          &kp N8          &kp N9              &kp N0
+            bindings = <           
+&lt SYS N1      &kp N2          &kp N3          &kp N4          &kp N5          &kp MINUS                       &kp EQUAL           &kp N6              &kp N7              &kp N8          &kp N9          &lt SYS N0
+&kp Q           &kp W           &kp E           &kp R           &kp T           &kp LBKT                        &kp RBKT            &kp Y               &kp U               &kp I           &kp O           &kp P               
+&kp A           &Lht LSFT S     &Lht LALT D     &Lht LCTRL F    &kp G           &kp TAB                         &kp APOS            &kp H               &td_J               &td_K           &Rht RSHFT L    &kp SEMICOLON       
+&kp Z           &kp X           &kp C           &Lht LGUI V     &lt NAV B       &lt RSIDE BSPC                  &lt LSIDE SPACE     &lt NUM N           &Rht RGUI M         &kp COMMA       &kp DOT         &kp SLASH           
+//  &kp Esc     &kp RETURN      
             >;
         };
 
