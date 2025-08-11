@@ -93,8 +93,8 @@
 			bindings = <
 			&trans			&trans			&trans			&trans			&trans			&trans								&kp PRINTSCREEN 	&kp C_BRI_DEC	&kp C_BRI_INC	&kp C_VOL_DN	&kp C_VOL_UP	&kp C_MUTE
  			&trans			&trans			&trans			&trans			&trans			&trans								&kp F7				&kp F8			&kp F9			&kp F10			&kp F11			&kp F12		
-			&trans			&trans			&trans			&trans			&trans			&trans								&none				&kp RCTRL		&kp RALT		&kp RSHFT		&none			&none
-			&kp GRAVE		&trans			&trans			&trans			&trans			&trans			&none	&none		&none				&kp RGUI		&none			&none			&none			&none
+			&trans			&trans			&trans			&trans			&trans			&trans								&none				&kp RGUI		&kp RALT		&kp RSHFT		&none			&none
+			&kp GRAVE		&trans			&trans			&trans			&trans			&trans			&none	&none		&none				&kp RCTRL		&none			&none			&none			&none
 											&none			&none			&none			&trans								&trans				&none			&none			&none
 			>;
 		};
@@ -103,8 +103,8 @@
 			bindings = <
 			&none			&none			&none			&none			&none			&none								&trans				&trans			&trans			&trans			&trans			&trans
 			&kp F1			&kp F2			&kp F3			&kp F4			&kp F5			&kp F6								&trans				&trans			&trans			&trans			&trans			&trans	
-			&none			&none			&kp LSHFT		&kp LALT		&kp LCTRL		&none								&trans				&trans			&trans			&trans			&trans			&trans
-			&none			&none			&none			&none			&kp LGUI		&none			&none	&none		&trans				&trans			&trans			&trans			&trans			&kp BSLH 
+			&none			&none			&kp LSHFT		&kp LALT		&kp LGUI		&none								&trans				&trans			&trans			&trans			&trans			&trans
+			&none			&none			&none			&none			&kp LCTRL		&none			&none	&none		&trans				&trans			&trans			&trans			&trans			&kp BSLH 
 											&none			&none			&none			&trans								&none				&none			&none			&none
 			>;
 		};
@@ -113,8 +113,8 @@
 			bindings = <
 			&none			&none			&none			&none			&none			&none								&none				&none			&none			&none			&none			&none
 			&none			&none			&none			&none			&none			&none								&kp PG_UP			&kp HOME		&kp UP			&kp END			&none			&none
-			&none			&none			&kp LSHFT		&kp LALT		&kp LCTRL		&none								&kp PG_DN			&kp LEFT		&kp DOWN		&kp RIGHT		&none			&none
-			&none			&none			&none			&none			&kp LGUI		&none			&none	&none		&none				&kp RETURN		&kp BSPC		&kp DELETE		&none			&none
+			&none			&none			&kp LSHFT		&kp LALT		&kp LGUI		&none								&kp PG_DN			&kp LEFT		&kp DOWN		&kp RIGHT		&none			&none
+			&none			&none			&none			&none			&kp LCTRL		&none			&none	&none		&none				&kp RETURN		&kp BSPC		&kp DELETE		&none			&none
 											&none			&none			&none			&trans								&none				&none			&none			&none
 			>;
 		};
@@ -123,8 +123,8 @@
 			bindings = <
 			&none			&none			&none			&kp KP_DIVIDE	&kp KP_MULTIPLY	&kp KP_MINUS						&none				&none			&none			&none			&none			&none
 			&none			&none			&kp KP_N7		&kp KP_N8		&kp KP_N9		&kp KP_PLUS							&none				&none			&none			&none			&none			&none
-			&none			&none			&kp KP_N4		&kp KP_N5		&kp KP_N6		&kp KP_N0							&none				&kp RCTRL		&kp RALT		&kp RSHFT		&none			&none
-			&none			&none			&kp KP_N1		&kp KP_N2		&kp KP_N3		&kp KP_DOT		&none	&none		&none				&kp RGUI		&none			&none			&none			&none
+			&none			&none			&kp KP_N4		&kp KP_N5		&kp KP_N6		&kp KP_N0							&none				&kp RGUI		&kp RALT		&kp RSHFT		&none			&none
+			&none			&none			&kp KP_N1		&kp KP_N2		&kp KP_N3		&kp KP_DOT		&none	&none		&none				&kp RCTRL		&none			&none			&none			&none
 											&none			&none			&none			&kp DELETE							&trans				&none			&none			&none
 			>;
 		};
