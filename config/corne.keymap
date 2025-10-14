@@ -91,17 +91,17 @@
 		left_layer {
 			bindings = <
 			&kp F1				&kp F2			&kp F3			&kp F4			&kp F5			&kp F6						&none			&none				&none			&none			&none			&none
-			&kp MINUS			&kp N1			&kp N2			&kp N3			&kp N4			&kp N5						&none			&kp RGUI			&kp RALT		&kp RSHFT		&none			&none
-			&kp GRAVE			&none			&none			&none			&none			&none						&none			&kp RCTRL			&none			&none			&none			&none
-																&none			&none			&kp DELETE					&trans			&none				&none
+			&kp MINUS			&kp N1			&kp N2			&kp N3			&kp N4			&kp N5						&kp BSLH		&kp RGUI			&kp RALT		&kp RSHFT		&none			&none
+			&trans				&none			&none			&none			&none			&none						&kp BSLH		&kp RCTRL			&none			&none			&none			&none
+																&none			&none			&trans						&trans			&none				&none
 			>;
 		};
 		
 		right_layer {
 			bindings = <
 			&none				&none			&none			&none			&none			&none						&kp F7			&kp F8				&kp F9			&kp F10			&kp F11			&kp F12
-			&none				&none			&kp LSHFT		&kp LALT		&kp LGUI		&none						&kp N6			&kp N7				&kp N8			&kp N9			&kp N0			&kp EQUAL
-			&none				&none			&none			&none			&kp LCTRL		&none						&none			&none				&none			&none			&none			&kp BSLH
+			&none				&none			&kp LSHFT		&kp LALT		&kp LGUI		&kp GRAVE					&kp N6			&kp N7				&kp N8			&kp N9			&kp N0			&kp EQUAL
+			&none				&none			&none			&none			&kp LCTRL		&kp TILDE					&none			&none				&none			&none			&none			&trans
 																&none			&none			&trans						&none			&none				&none
 			>;
 		};
