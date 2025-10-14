@@ -126,7 +126,7 @@
 			&none			&none			&mkp RCLK		&mmv MOVE_UP	&mkp LCLK		&msc SCRL_UP						&none				&none			&none			&none			&none			&none
 			&none			&none			&mmv MOVE_LEFT	&mmv MOVE_DOWN	&mmv MOVE_RIGHT	&msc SCRL_DOWN						&none				&kp RGUI		&kp RALT		&kp RSHFT		&none			&none
 			&none			&none			&none			&none			&none			&none			&none	&none		&none				&kp RCTRL		&none			&none			&none			&none
-											&none			&none			&none			&none								&trans				&none			&none			&none
+											&none			&none			&none			&none								&trans				&trans			&none			&none
 			>;
 		};
 
