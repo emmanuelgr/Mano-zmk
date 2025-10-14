@@ -93,8 +93,8 @@
 			bindings = <
 			&trans			&trans			&trans			&trans			&trans			&trans								&kp PRINTSCREEN 	&kp C_BRI_DEC	&kp C_BRI_INC	&kp C_VOL_DN	&kp C_VOL_UP	&kp C_MUTE
  			&trans			&trans			&trans			&trans			&trans			&trans								&kp F7				&kp F8			&kp F9			&kp F10			&kp F11			&kp F12		
-			&trans			&trans			&trans			&trans			&trans			&trans								&none				&kp RGUI		&kp RALT		&kp RSHFT		&none			&none
-			&kp GRAVE		&trans			&trans			&trans			&trans			&trans			&none	&none		&none				&kp RCTRL		&none			&none			&none			&none
+			&trans			&trans			&trans			&trans			&trans			&trans								&kp BSLH			&kp RGUI		&kp RALT		&kp RSHFT		&none			&none
+			&trans			&trans			&trans			&trans			&trans			&trans			&none	&none		&kp PIPE			&kp RCTRL		&none			&none			&none			&none
 											&none			&none			&none			&trans								&trans				&none			&none			&none
 			>;
 		};
@@ -103,8 +103,8 @@
 			bindings = <
 			&none			&none			&none			&none			&none			&none								&trans				&trans			&trans			&trans			&trans			&trans
 			&kp F1			&kp F2			&kp F3			&kp F4			&kp F5			&kp F6								&trans				&trans			&trans			&trans			&trans			&trans	
-			&none			&none			&kp LSHFT		&kp LALT		&kp LGUI		&none								&trans				&trans			&trans			&trans			&trans			&trans
-			&none			&none			&none			&none			&kp LCTRL		&none			&none	&none		&trans				&trans			&trans			&trans			&trans			&kp BSLH 
+			&none			&none			&kp LSHFT		&kp LALT		&kp LGUI		&kp GRAVE							&trans				&trans			&trans			&trans			&trans			&trans
+			&none			&none			&none			&none			&kp LCTRL		&kp TILDE		&none	&none		&trans				&trans			&trans			&trans			&trans			&trans
 											&none			&none			&none			&trans								&none				&none			&none			&none
 			>;
 		};
