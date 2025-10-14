@@ -14,8 +14,7 @@
 #define RSIDE  2
 #define NAV  3
 #define MS  4
-#define NUM  5
-#define SYS  6
+#define SYS  5
 / {
 	behaviors {
 		Lht: left_hand_positional_hold_tap {
@@ -86,7 +85,7 @@
 			&kp LBKT		&kp Q			&kp W			&kp E			&kp R			&kp T								&kp Y				&kp U			&kp I			&kp O			&kp P			&kp RBKT
 			&kp TAB			&kp A			&kp S			&kp D			&kp F			&kp G								&kp H				&kp J			&kp K			&kp L			&kp SEMI		&kp APOS
 			&kp ESC			&kp Z			&kp X			&kp C			&kp V			&kp B			&none	&none		&kp N				&kp M			&kp COMMA		&kp DOT			&kp FSLH		&kp RETURN
-											&mo SYS			&none			&mo NAV			&lt RSIDE BSPC						&lt LSIDE SPACE		&mo MS			&mo NUM			&mo SYS
+											&mo SYS			&none			&mo NAV			&lt RSIDE BSPC						&lt LSIDE SPACE		&mo MS			&none			&mo SYS
 			>;
 		};
 
@@ -128,16 +127,6 @@
 			&none			&none			&mmv MOVE_LEFT	&mmv MOVE_DOWN	&mmv MOVE_RIGHT	&msc SCRL_DOWN						&none				&kp RGUI		&kp RALT		&kp RSHFT		&none			&none
 			&none			&none			&none			&none			&none			&none			&none	&none		&none				&kp RCTRL		&none			&none			&none			&none
 											&none			&none			&none			&none								&trans				&none			&none			&none
-			>;
-		};
-
-		num_layer {
-			bindings = <
-			&none			&none			&none			&kp KP_DIVIDE	&kp KP_MULTIPLY	&kp KP_MINUS						&none				&none			&none			&none			&none			&none
-			&none			&none			&kp KP_N7		&kp KP_N8		&kp KP_N9		&kp KP_PLUS							&none				&none			&none			&none			&none			&none
-			&none			&none			&kp KP_N4		&kp KP_N5		&kp KP_N6		&kp KP_N0							&none				&kp RGUI		&kp RALT		&kp RSHFT		&none			&none
-			&none			&none			&kp KP_N1		&kp KP_N2		&kp KP_N3		&kp KP_DOT		&none	&none		&none				&kp RCTRL		&none			&none			&none			&none
-											&none			&none			&none			&kp DELETE							&trans				&none			&none			&none
 			>;
 		};
 
