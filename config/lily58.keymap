@@ -106,7 +106,7 @@
 			&kp F1			&kp F2			&kp F3			&kp F4			&kp F5			&kp F6								&trans				&trans			&trans			&trans			&trans			&trans	
 			&none			&none			&kp LSHFT		&kp LALT		&kp LGUI		&kp GRAVE							&trans				&trans			&trans			&trans			&trans			&trans
 			&none			&none			&none			&none			&kp LCTRL		&kp TILDE		&none	&none		&trans				&trans			&trans			&trans			&trans			&trans
-											&none			&none			&none			&trans								&none				&none			&none			&none
+											&none			&none			&none			&trans								&trans				&none			&none			&none
 			>;
 		};
 
@@ -116,7 +116,7 @@
 			&none			&none			&none			&none			&none			&none								&kp PG_UP			&kp HOME		&kp UP			&kp END			&none			&none
 			&none			&none			&kp LSHFT		&kp LALT		&kp LGUI		&none								&kp PG_DN			&kp LEFT		&kp DOWN		&kp RIGHT		&none			&none
 			&none			&none			&none			&none			&kp LCTRL		&none			&none	&none		&none				&kp RETURN		&kp BSPC		&kp DELETE		&none			&none
-											&none			&none			&none			&trans								&none				&none			&none			&none
+											&none			&none			&none			&trans								&trans				&none			&none			&none
 			>;
 		};
 
