@@ -14,7 +14,6 @@
 #define RSIDE  2
 #define NAV  3
 #define MS  4
-#define SYS  5
 / {
 	behaviors {
 		Lht: left_hand_positional_hold_tap {
@@ -85,27 +84,27 @@
 			&kp LBKT		&kp Q			&kp W			&kp E			&kp R			&kp T								&kp Y				&kp U			&kp I			&kp O			&kp P			&kp RBKT
 			&kp TAB			&kp A			&kp S			&kp D			&kp F			&kp G								&kp H				&kp J			&kp K			&kp L			&kp SEMI		&kp APOS
 			&kp ESC			&kp Z			&kp X			&kp C			&kp V			&kp B			&none	&none		&kp N				&kp M			&kp COMMA		&kp DOT			&kp FSLH		&kp RETURN
-											&mo SYS			&none			&mo NAV			&lt RSIDE BSPC						&lt LSIDE SPACE		&mo MS			&none			&mo SYS
+											&none			&none			&mo NAV			&lt RSIDE BSPC						&lt LSIDE SPACE		&mo MS			&none			&none
 			>;
 		};
 
 
 		left_layer {
 			bindings = <
-			&trans			&trans			&trans			&trans			&trans			&trans								&kp PRINTSCREEN 	&kp C_BRI_DEC	&kp C_BRI_INC	&kp C_VOL_DN	&kp C_VOL_UP	&kp C_MUTE
+			&trans			&trans			&trans			&trans			&trans			&trans								&none				&none			&none			&kp C_VOL_DN	&kp C_VOL_UP	&kp C_MUTE
  			&trans			&trans			&trans			&trans			&trans			&trans								&kp F7				&kp F8			&kp F9			&kp F10			&kp F11			&kp F12		
 			&trans			&trans			&trans			&trans			&trans			&trans								&kp BSLH			&kp RGUI		&kp RALT		&kp RSHFT		&none			&none
-			&trans			&trans			&trans			&trans			&trans			&trans			&none	&none		&kp PIPE			&kp RCTRL		&none			&none			&none			&none
+			&trans			&trans			&trans			&trans			&trans			&trans			&none	&none		&kp PIPE			&kp RCTRL		&kp BSPC		&kp DELETE		&none			&kp RETURN
 											&none			&none			&none			&trans								&trans				&none			&none			&none
 			>;
 		};
  
 		right_layer {
 			bindings = <
-			&none			&none			&none			&none			&none			&none								&trans				&trans			&trans			&trans			&trans			&trans
+			&kp C_BRI_DEC	&kp C_BRI_INC	&none			&none			&none			&none								&trans				&trans			&trans			&trans			&trans			&trans
 			&kp F1			&kp F2			&kp F3			&kp F4			&kp F5			&kp F6								&trans				&trans			&trans			&trans			&trans			&trans	
 			&none			&none			&kp LSHFT		&kp LALT		&kp LGUI		&kp GRAVE							&trans				&trans			&trans			&trans			&trans			&trans
-			&none			&none			&none			&none			&kp LCTRL		&kp TILDE		&none	&none		&trans				&trans			&trans			&trans			&trans			&trans
+			&none			&none			&none			&none			&kp LCTRL		&kp TILDE		&none	&none		&trans				&trans			&trans			&trans			&trans			&kp RETURN
 											&none			&none			&none			&trans								&trans				&none			&none			&none
 			>;
 		};
@@ -115,28 +114,18 @@
 			&none			&none			&none			&none			&none			&none								&none				&none			&none			&none			&none			&none
 			&none			&none			&none			&none			&none			&none								&kp PG_UP			&kp HOME		&kp UP			&kp END			&none			&none
 			&none			&none			&kp LSHFT		&kp LALT		&kp LGUI		&none								&kp PG_DN			&kp LEFT		&kp DOWN		&kp RIGHT		&none			&none
-			&none			&none			&none			&none			&kp LCTRL		&none			&none	&none		&none				&kp RETURN		&kp BSPC		&kp DELETE		&none			&none
+			&none			&none			&none			&none			&kp LCTRL		&none			&none	&none		&kp PRINTSCREEN 	&none			&kp BSPC		&kp DELETE		&none			&kp RETURN
 											&none			&none			&none			&trans								&trans				&none			&none			&none
 			>;
 		};
 
 		ms_layer {
 			bindings = <
-			&none			&none			&none			&none			&none			&none								&none				&none			&none			&none			&none			&none
+			&bootloader		&none			&none			&none			&none			&none								&bt BT_CLR			&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4
 			&none			&none			&msc SCRL_LEFT	&mmv MOVE_UP	&msc SCRL_RIGHT	&msc SCRL_UP						&none				&none			&none			&none			&none			&none
 			&none			&none			&mmv MOVE_LEFT	&mmv MOVE_DOWN	&mmv MOVE_RIGHT	&msc SCRL_DOWN						&none				&kp RGUI		&kp RALT		&kp RSHFT		&none			&none
-			&none			&none			&none			&none			&none			&none			&none	&none		&none				&kp RCTRL		&none			&none			&none			&none
+			&none			&none			&none			&none			&none			&none			&none	&none		&none				&kp RCTRL		&kp BSPC		&kp DELETE		&none			&kp RETURN
 											&none			&mkp MCLK		&mkp LCLK		&mkp RCLK							&none				&trans			&none			&none
-			>;
-		};
-
-		sys_layer {
-			bindings = <
-			&none			&none			&none			&none			&none			&none								&none				&none			&none			&none			&none			&none
-			&sys_reset		&none			&none			&none			&none			&none								&none				&none			&none			&none			&none			&sys_reset
-			&bt BT_CLR		&bt BT_SEL 0	&bt BT_SEL 1	&bt BT_SEL 2	&bt BT_SEL 3	&bt BT_SEL 4						&none				&none			&none			&none			&none			&none
-			&bootloader		&none			&none			&none			&none			&none			&none	&none		&none				&none			&none			&none			&none			&bootloader
-											&none			&trans			&none			&none								&none				&none			&trans			&none
 			>;
 		};
 
