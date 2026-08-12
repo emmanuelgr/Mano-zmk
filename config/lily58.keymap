@@ -15,44 +15,23 @@
 #define NAV  3
 #define MS  4
 / {
-	behaviors {
-		// No home-row mods on lily58, by design. The Lht/Rht positional
-		// hold-taps and the td_J/td_F wrappers that used them are gone.
-		// ESC comes from the J+K combo below and &kp ESC on the base layer.
-
-		td_Esc: tap_dance_esc {
-			compatible = "zmk,behavior-tap-dance";
-			label = "tap dance Esc";
-			#binding-cells = <0>;
-			tapping-term-ms = <200>;
-			bindings = <&kp ESC>, <&kp GRAVE>;
-		};
-
-		td_lr: tap_dance_R_lower_right {
-			compatible = "zmk,behavior-tap-dance";
-			label = "tap dance overload left lower right key";
-			#binding-cells = <0>;
-			tapping-term-ms = <500>;
-			bindings = <&lt RSIDE BSPC>, <&kp LBKT>;
-		};
-		td_ll: tap_dance_L_lower_left {
-			compatible = "zmk,behavior-tap-dance";
-			label = "tap dance overload right lower left key";
-			#binding-cells = <0>;
-			tapping-term-ms = <500>;
-			bindings = <&lt LSIDE SPACE>, <&kp N>;
-		};
-	};
-
 	combos {
 		compatible = "zmk,combos";
 
-		// J+K together = ESC. Positions are absolute indices into the
-		// keymap matrix: 31 = J, 32 = K on the right home row.
+		// Positions are absolute indices into the keymap matrix:
+		// 28 = F, 31 = J, 32 = K. They differ from corne's 16/19/20
+		// because lily58 has an extra number row above the alphas.
 		combo_esc {
 			timeout-ms = <50>;
-			key-positions = <31 32>;
+			key-positions = <28 31>;
 			bindings = <&kp ESC>;
+			layers = <BASE>;
+		};
+
+		combo_enter {
+			timeout-ms = <50>;
+			key-positions = <31 32>;
+			bindings = <&kp RETURN>;
 			layers = <BASE>;
 		};
 	};
