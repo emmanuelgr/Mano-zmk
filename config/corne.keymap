@@ -26,6 +26,18 @@
 			flavor = "balanced";
 			bindings = <&kp>, <&kp>;
 		};
+		gt: globe_hold_tap {
+			compatible = "zmk,behavior-hold-tap";
+			label = "GLOBE_HOLD_TAP";
+			#binding-cells = <2>;
+			tapping-term-ms = <200>;
+			quick-tap-ms = <150>;
+			// tap-preferred: pressing another key while held still yields
+			// the tap, so typing "ct" or ",a" cannot misfire into GLOBE.
+			// Only a deliberate 200ms hold gives the modifier.
+			flavor = "tap-preferred";
+			bindings = <&kp>, <&kp>;
+		};
 		Rht: right_hand_positional_hold_tap {
 			compatible = "zmk,behavior-hold-tap";
 			label = "RIGHT_POSITIONAL_HOLD_TAP";
@@ -40,25 +52,46 @@
 	combos {
 		compatible = "zmk,combos";
 
-		// Positions are absolute indices into the keymap matrix:
-		// 16 = F, 19 = J, 20 = K. F+J is cross-hand so a typing roll
-		// cannot trigger it; J+K is same-hand index+middle.
+		// require-prior-idle-ms suppresses a combo unless you paused first, so
+		// mid-word rolls cannot fire it. Without it these pairs are unusable:
+		// s+d appears 720x, k+l 1280x in a 236k word list, and l+; 134k times
+		// in real source. Positions: 14=S 15=D 16=F 19=J 20=K 21=L 22=SEMI.
 		combo_esc {
 			timeout-ms = <50>;
-			key-positions = <16 19>;
+			require-prior-idle-ms = <150>;
+			key-positions = <14 15>;
 			bindings = <&kp ESC>;
+			layers = <BASE>;
+		};
+
+		combo_tab {
+			timeout-ms = <50>;
+			require-prior-idle-ms = <150>;
+			key-positions = <15 16>;
+			bindings = <&kp TAB>;
 			layers = <BASE>;
 		};
 
 		combo_enter {
 			timeout-ms = <50>;
+			require-prior-idle-ms = <150>;
 			key-positions = <19 20>;
 			bindings = <&kp RETURN>;
 			layers = <BASE>;
 		};
+
+		combo_bspc {
+			timeout-ms = <50>;
+			require-prior-idle-ms = <150>;
+			key-positions = <20 21>;
+			bindings = <&kp BSPC>;
+			layers = <BASE>;
+		};
+
 		combo_del {
 			timeout-ms = <50>;
-			key-positions = <20 26>;
+			require-prior-idle-ms = <150>;
+			key-positions = <21 22>;
 			bindings = <&kp DELETE>;
 			layers = <BASE>;
 		};
@@ -71,7 +104,7 @@
 			bindings = <
 			&kp LBKT			&kp Q			&kp W			&kp E			&kp R			&kp T						&kp Y				&kp U			&kp I			&kp O			&kp P			&kp RBKT
 			&kp TAB				&kp A			&Lht LSFT S		&Lht LALT D		&Lht LGUI F		&kp G						&kp H				&Rht RGUI J		&Rht RALT K		&Rht RSHFT L	&kp SEMI		&kp APOS
-			&kp ESC				&kp Z			&kp X			&kp C			&Lht LCTRL V	&kp B						&kp N				&Rht RCTRL M	&kp COMMA		&kp DOT			&kp FSLH		&kp RETURN
+			&kp ESC				&kp Z			&kp X			&gt GLOBE C		&Lht LCTRL V	&kp B						&kp N				&Rht RCTRL M	&gt GLOBE COMMA	&kp DOT			&kp FSLH		&kp RETURN
 																&mo SYS			&mo NAV			&lt RSIDE BSPC				&lt LSIDE SPACE		&mo MS			&mo SYS
 			>;
 		};
