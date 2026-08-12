@@ -76,13 +76,26 @@
 		};
 	};
 	
+	combos {
+		compatible = "zmk,combos";
+
+		// J+K together = ESC. Positions are absolute indices into the
+		// keymap matrix: 19 = J, 20 = K on the right home row.
+		combo_esc {
+			timeout-ms = <50>;
+			key-positions = <19 20>;
+			bindings = <&kp ESC>;
+			layers = <BASE>;
+		};
+	};
+
 	keymap {
 		compatible = "zmk,keymap";
 		
 		default_layer {
 			bindings = <
 			&kp LBKT			&kp Q			&kp W			&kp E			&kp R			&kp T						&kp Y				&kp U			&kp I			&kp O			&kp P			&kp RBKT
-			&kp TAB				&kp A			&Lht LSFT S		&Lht LALT D		&Lht LGUI F		&kp G						&kp H				&td_J			&Rht LALT K		&Rht RSHFT L	&kp SEMI		&kp APOS
+			&kp TAB				&kp A			&Lht LSFT S		&Lht LALT D		&Lht LGUI F		&kp G						&kp H				&td_J			&Rht RALT K		&Rht RSHFT L	&kp SEMI		&kp APOS
 			&kp ESC				&kp Z			&kp X			&kp C			&Lht LCTRL V	&kp B						&kp N				&Rht RCTRL M	&kp COMMA		&kp DOT			&kp FSLH		&kp RETURN
 																&mo SYS			&mo NAV			&lt RSIDE BSPC				&lt LSIDE SPACE		&mo MS			&mo SYS
 			>;
