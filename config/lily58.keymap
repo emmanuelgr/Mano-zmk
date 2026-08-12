@@ -75,6 +75,19 @@
 		};
 	};
 
+	combos {
+		compatible = "zmk,combos";
+
+		// J+K together = ESC. Positions are absolute indices into the
+		// keymap matrix: 31 = J, 32 = K on the right home row.
+		combo_esc {
+			timeout-ms = <50>;
+			key-positions = <31 32>;
+			bindings = <&kp ESC>;
+			layers = <BASE>;
+		};
+	};
+
 	keymap {
 		compatible = "zmk,keymap";
 
