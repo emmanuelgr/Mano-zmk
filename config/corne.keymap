@@ -35,56 +35,25 @@
 			flavor = "balanced";
 			bindings = <&kp>, <&kp>;
 		};
-		
-		td_Esc: tap_dance_esc {
-			compatible = "zmk,behavior-tap-dance";
-			label = "tap dance Esc";
-			#binding-cells = <0>;
-			tapping-term-ms = <200>;
-			bindings = <&kp ESC>, <&kp GRAVE>;
-		};
-		
-		td_J: tap_dance_j {
-			compatible = "zmk,behavior-tap-dance";
-			label = "tap dance J";
-			#binding-cells = <0>;
-			tapping-term-ms = <200>;
-			bindings = <&Rht RGUI J>, <&kp ESC>;
-		};
-		td_F: tap_dance_f {
-			compatible = "zmk,behavior-tap-dance";
-			label = "tap dance F";
-			#binding-cells = <0>;
-			tapping-term-ms = <200>;
-			bindings = <&Lht LCTRL F>, <&kp ESC>;
-		};
-		
-		
-		td_lr: tap_dance_R_lower_right {
-			compatible = "zmk,behavior-tap-dance";
-			label = "tap dance overload left lower right key";
-			#binding-cells = <0>;
-			tapping-term-ms = <500>;
-			bindings = <&lt RSIDE BSPC>, <&kp LBKT>;
-		};
-		td_ll: tap_dance_L_lower_left {
-			compatible = "zmk,behavior-tap-dance";
-			label = "tap dance overload right lower left key";
-			#binding-cells = <0>;
-			tapping-term-ms = <500>;
-			bindings = <&lt LSIDE SPACE>, <&kp N>;
-		};
 	};
 	
 	combos {
 		compatible = "zmk,combos";
 
-		// J+K together = ESC. Positions are absolute indices into the
-		// keymap matrix: 19 = J, 20 = K on the right home row.
+		// Positions are absolute indices into the keymap matrix:
+		// 16 = F, 19 = J, 20 = K. F+J is cross-hand so a typing roll
+		// cannot trigger it; J+K is same-hand index+middle.
 		combo_esc {
 			timeout-ms = <50>;
-			key-positions = <19 20>;
+			key-positions = <16 19>;
 			bindings = <&kp ESC>;
+			layers = <BASE>;
+		};
+
+		combo_enter {
+			timeout-ms = <50>;
+			key-positions = <19 20>;
+			bindings = <&kp RETURN>;
 			layers = <BASE>;
 		};
 	};
@@ -95,7 +64,7 @@
 		default_layer {
 			bindings = <
 			&kp LBKT			&kp Q			&kp W			&kp E			&kp R			&kp T						&kp Y				&kp U			&kp I			&kp O			&kp P			&kp RBKT
-			&kp TAB				&kp A			&Lht LSFT S		&Lht LALT D		&Lht LGUI F		&kp G						&kp H				&td_J			&Rht RALT K		&Rht RSHFT L	&kp SEMI		&kp APOS
+			&kp TAB				&kp A			&Lht LSFT S		&Lht LALT D		&Lht LGUI F		&kp G						&kp H				&Rht RGUI J		&Rht RALT K		&Rht RSHFT L	&kp SEMI		&kp APOS
 			&kp ESC				&kp Z			&kp X			&kp C			&Lht LCTRL V	&kp B						&kp N				&Rht RCTRL M	&kp COMMA		&kp DOT			&kp FSLH		&kp RETURN
 																&mo SYS			&mo NAV			&lt RSIDE BSPC				&lt LSIDE SPACE		&mo MS			&mo SYS
 			>;
