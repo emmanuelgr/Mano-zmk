@@ -16,24 +16,9 @@
 #define MS  4
 / {
 	behaviors {
-		Lht: left_hand_positional_hold_tap {
-			compatible = "zmk,behavior-hold-tap";
-			label = "LEFT_POSITIONAL_HOLD_TAP";
-			#binding-cells = <2>;
-			tapping-term-ms = <180>;
-			quick-tap-ms = <0>;
-			flavor = "balanced";
-			bindings = <&kp>, <&kp>;
-		};
-		Rht: right_hand_positional_hold_tap {
-			compatible = "zmk,behavior-hold-tap";
-			label = "RIGHT_POSITIONAL_HOLD_TAP";
-			#binding-cells = <2>;
-			tapping-term-ms = <180>;
-			quick-tap-ms = <0>;
-			flavor = "balanced";
-			bindings = <&kp>, <&kp>;
-		};
+		// No home-row mods on lily58, by design. The Lht/Rht positional
+		// hold-taps and the td_J/td_F wrappers that used them are gone.
+		// ESC comes from the J+K combo below and &kp ESC on the base layer.
 
 		td_Esc: tap_dance_esc {
 			compatible = "zmk,behavior-tap-dance";
@@ -42,22 +27,6 @@
 			tapping-term-ms = <200>;
 			bindings = <&kp ESC>, <&kp GRAVE>;
 		};
-
-		td_J: tap_dance_j {
-			compatible = "zmk,behavior-tap-dance";
-			label = "tap dance J";
-			#binding-cells = <0>;
-			tapping-term-ms = <200>;
-			bindings = <&Rht RCTRL J>, <&kp ESC>;
-		};
-		td_F: tap_dance_f {
-			compatible = "zmk,behavior-tap-dance";
-			label = "tap dance F";
-			#binding-cells = <0>;
-			tapping-term-ms = <200>;
-			bindings = <&Lht LCTRL F>, <&kp ESC>;
-		};
-
 
 		td_lr: tap_dance_R_lower_right {
 			compatible = "zmk,behavior-tap-dance";
