@@ -89,12 +89,12 @@
                                                  &none  &trans  &trans          ,   &trans  &none  &none
     )
 
-    /* Hold L2: arrows on the right, mods under the left hand. */
+    /* Hold L2: arrows on the right, mods under the left hand. C = Fn, so Fn+arrows works in any order. */
     LAYOUT_LAYER(nav_layer, "L2 arrows",
         &none    &none  &none      &none     &none      &none ,   &none            &none       &none     &none       &none  &none      ,   /* number row (Lily58 only) */
         &none    &none  &none      &none     &none      &none ,   &kp PG_UP        &kp HOME    &kp UP    &kp END     &none  &none      ,   /* top */
         &kp TAB  &none  &kp LSHFT  &kp LALT  &kp LGUI   &none ,   &kp PG_DN        &kp LEFT    &kp DOWN  &kp RIGHT   &none  &none      ,   /* home */
-        &kp ESC  &none  &none      &none     &kp LCTRL  &none ,   &kp PRINTSCREEN  &kp RETURN  &kp BSPC  &kp DELETE  &none  &kp RETURN ,   /* bottom */
+        &kp ESC  &none  &none      &kp F18   &kp LCTRL  &none ,   &kp PRINTSCREEN  &kp RETURN  &kp BSPC  &kp DELETE  &none  &kp RETURN ,   /* bottom */
                                    &none  &none  &trans       ,   &trans  &none  &none
     )
 
@@ -125,12 +125,12 @@
                                    &trans  &none  &trans          ,   &trans  &none  &none
     )
 
-    /* Hold L1+L2 or R1+R2: MacBook media row on the F1-F12 keys, Bluetooth, bootloader. */
+    /* Hold L1+L2 or R1+R2 (hold a moment before tapping): MacBook media row on the F1-F12 keys; Bluetooth 1-3 and clear on X C V B (away from the mouse keys); bootloader in the corners. */
     LAYOUT_LAYER(media_layer, "Media",
-        &none         &none         &none         &none          &none  &none          ,   &none       &none     &none       &none       &none         &none        ,   /* number row (Lily58 only) */
-        &kp C_BRI_DN  &kp C_BRI_UP  &kp LC(UP)    &kp LG(SPACE)  &none  &none          ,   &kp C_PREV  &kp C_PP  &kp C_NEXT  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP ,   /* top */
-        &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2   &none  &studio_unlock ,   &none       &none     &none       &none       &none         &none        ,   /* home */
-        &bootloader   &sys_reset    &none         &none          &none  &none          ,   &none       &none     &none       &none       &sys_reset    &bootloader  ,   /* bottom */
+        &none         &none         &none         &none          &none         &none          ,   &none       &none     &none       &none       &none         &none        ,   /* number row (Lily58 only) */
+        &kp C_BRI_DN  &kp C_BRI_UP  &kp LC(UP)    &kp LG(SPACE)  &none         &none          ,   &kp C_PREV  &kp C_PP  &kp C_NEXT  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP ,   /* top */
+        &none         &none         &none         &none          &none         &studio_unlock ,   &none       &none     &none       &none       &none         &none        ,   /* home */
+        &bootloader   &sys_reset    &bt BT_SEL 0  &bt BT_SEL 1   &bt BT_SEL 2  &bt BT_CLR     ,   &none       &none     &none       &none       &sys_reset    &bootloader  ,   /* bottom */
                                                   &none  &trans  &trans                ,   &trans  &trans  &none
     )
     };
