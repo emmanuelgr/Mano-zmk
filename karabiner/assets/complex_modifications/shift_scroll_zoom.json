@@ -1,0 +1,36 @@
+{
+  "title": "Shift+Scroll to Zoom (map Shift->Command for mouse wheel)",
+  "rules": [
+    {
+      "description": "While scrolling, treat Shift as Command (so Shift+scroll zooms in many apps)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button4",
+            "modifiers": { "mandatory": ["shift"], "optional": ["any"] }
+          },
+          "to": [
+            {
+              "pointing_button": "button4",
+              "modifiers": ["left_command"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "pointing_button": "button5",
+            "modifiers": { "mandatory": ["shift"], "optional": ["any"] }
+          },
+          "to": [
+            {
+              "pointing_button": "button5",
+              "modifiers": ["left_command"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
