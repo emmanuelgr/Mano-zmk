@@ -98,7 +98,7 @@ git add docs/superpowers && git commit -m "docs: design spec and implementation 
 **Files:**
 - Create: `config/layout.dtsi`
 - Replace: `config/corne.keymap`, `config/lily58.keymap`, `build.yaml`, `.github/workflows/build.yml`, `.gitignore`
-- Test: `/tmp/kbviz/verify_keymaps.py` (throwaway; compares against the approved layout data in `/tmp/kbviz/gen7.py`)
+- Test: `/tmp/kbviz/verify_keymaps.py` (throwaway; compares against the approved layout, frozen in `/tmp/kbviz/expected.json`)
 
 **Interfaces:**
 - Produces: macro `LAYOUT_LAYER(layer_node, layer_label, num_l, num_r, top_l, top_r, home_l, home_r, bot_l, bot_r, thumb_l, thumb_r)` (defined per board), combo positions `POS_S POS_D POS_F POS_J POS_K POS_L POS_SEMI` (per board), layer names `BASE MODS_R MODS_L NAV MOUSE NUM_L NUM_R MEDIA` (in layout.dtsi), behavior `&fnh` (hold-tap).
@@ -167,16 +167,21 @@ def layers(text):
                                  km, re.S)]
 
 
-mk = load("/tmp/kbviz/make_dtsi.py", "mk")
-g = mk.g
-SRC = {node: src for src, node, _, _ in mk.LAYERS}
+import json
+EXP = json.load(open("/tmp/kbviz/expected.json"))   # approved layout, frozen on 2026-09-26
+SRC = EXP["corne"]
+
+
+def fix(b):
+    b = EXP["renames"].get(b, b)
+    return b.replace("&gt F18", "&fnh F18")
 
 
 def expected(board, node):
-    data = (g.ca if board == "corne" else g.la)[SRC[node]]
+    data = EXP[board][node]
     out = []
     for b in data:
-        b = mk.fix(b)
+        b = fix(b)
         parts = b.split()
         if parts[0] in ("&mo", "&lt") and parts[1] in LAYER_INDEX:
             parts[1] = str(LAYER_INDEX[parts[1]])
@@ -794,7 +799,7 @@ if __name__ == "__main__":
 
 ```bash
 python3 scripts/layout_html.py        # expect: wrote docs/layout.html (8 layers)
-grep -c 'class="kb"' docs/layout.html  # expect 8
+grep -o 'class="kb"' docs/layout.html | wc -l  # expect 8
 grep -q 'Hold L1 + L2  (or R1 + R2)' docs/layout.html && grep -q 'hold: fn' docs/layout.html && grep -q '>caps<' docs/layout.html && echo ok
 ```
 
