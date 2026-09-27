@@ -4,7 +4,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "ZMK keyboards (Corne, Lily58): F18 = the real Mac Fn / Globe key (hold C or , on the keyboard)",
+                        "description": "ZMK keyboards (Corne, Lily58): F18 = the real Mac Fn / Globe key (hold C or , on the keyboard); only acts together with another key",
                         "manipulators": [
                             {
                                 "type": "basic",
@@ -18,7 +18,8 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "fn"
+                                        "key_code": "fn",
+                                        "lazy": true
                                     }
                                 ],
                                 "conditions": [

@@ -16,15 +16,17 @@ launchctl kickstart -k gui/$(id -u)/org.pqrs.service.agent.Karabiner-Console-Use
 
 ### ZMK keyboards (Corne, Lily58)
 
-- **Fn key:** holding **C** or **,** on the keyboards sends F18, and Karabiner turns F18 into the Mac's real
-  **Fn / 🌐** key. ZMK can't send a real Fn by itself, because macOS only accepts it from Apple-made keyboards.
+- **Fn key:** holding **C** or **,** on the keyboards (or C on their arrows layer) sends F18, and Karabiner turns F18
+  into the Mac's real **Fn / 🌐** key. ZMK can't send a real Fn by itself, because macOS only accepts it from
+  Apple-made keyboards. The Fn is `lazy`: it only acts together with another key, so a long press of C on its own
+  never triggers the 🌐 tap action (switching input source).
 - **F1–F12 stay F-keys** on these keyboards (per-device `fn_function_keys`). Media keys are on the keyboards' Media layer.
 - Karabiner normally ignores ZMK keyboards (they are also mice), so the config sets `"ignore": false` for them.
   All ZMK keyboards share vendor 7504 / product 24926, so one entry covers both.
 
 ### Built-in laptop keyboard only
 
-Every rule below has a `device_if is_built_in_keyboard` condition, so none of it touches the ZMK keyboards.
+Every complex rule below has a `device_if is_built_in_keyboard` condition, so none of it touches the ZMK keyboards.
 
 **Space layer (hold Spacebar):**
 
@@ -45,7 +47,8 @@ Tapping Spacebar alone still types a space.
 These pairs almost never appear next to each other in real words, which is why they're safe without a pause guard
 (the ZMK keyboards use different combos, protected by a "only after a pause" setting that Karabiner doesn't have).
 
-**Caps Lock ↔ Control** are swapped.
+**Caps Lock ↔ Control** are swapped. This is a Devices-tab setting, not a rule: its identifiers `{"is_keyboard": true}`
+are matched exactly (vendor 0, product 0, not a pointing device), which only the built-in keyboard has.
 
 ## Differences from the ZMK keyboards
 

@@ -83,6 +83,8 @@ def label(b):
         k = args[0]
         if k in MEDIA:
             return (*MEDIA[k], "")
+        if k == "F18":   # Karabiner turns F18 into the Mac's real Fn
+            return "🌐", "fn", ""
         for suffix, (s, w) in MODS.items():
             if k.endswith(suffix) and len(k) <= 6:
                 return s, w, "mod"
@@ -120,9 +122,11 @@ def held_thumbs(layer, layer_index, rules, base):
     return (groups[0] if groups else []), groups[1:]
 
 
-def key_html(b, base_b, cls_extra, held=False):
+def key_html(b, base_b, cls_extra, held=False, alt=False):
     if held:
         return f'<div class="k held {cls_extra}"><span class="m">HELD</span></div>'
+    if alt:   # the other thumb pair that opens the same two-thumb layer
+        return f'<div class="k held alt {cls_extra}"><span class="m">or</span></div>'
     if b == "&trans":
         main, small, cls = label(base_b)
         cls = "pass"
@@ -134,7 +138,7 @@ def key_html(b, base_b, cls_extra, held=False):
     return f'<div class="k {cls} {cls_extra}">{inner}</div>'
 
 
-def board_html(layer, base, held):
+def board_html(layer, base, held, alts=()):
     cells = []
     for c in range(12):   # Lily58-only number row
         col = c + 1 if c < 6 else c + 2
@@ -149,7 +153,7 @@ def board_html(layer, base, held):
     for i, p in enumerate(range(36, 42)):
         col = [4, 5, 6, 8, 9, 10][i]
         cells.append(f'<div class="thumbcell" style="grid-row:5;grid-column:{col}">'
-                     f'{key_html(layer["core"][p], base[p], "thumb", held=p in held)}'
+                     f'{key_html(layer["core"][p], base[p], "thumb", held=p in held, alt=p in alts)}'
                      f'<span class="tn">{THUMBS[i]}</span></div>')
     return f'<div class="kb">{"".join(cells)}</div>'
 
@@ -181,6 +185,7 @@ td:first-child { font-weight: 600; white-space: nowrap; }
 .k.pass { background: transparent; color: var(--faint); }
 .k.mod { background: rgba(255,159,10,.16); border-color: var(--mod); font-weight: 600; }
 .k.held { background: var(--accent); border-color: var(--accent); color: #fff; font-size: 12px; font-weight: 600; }
+.k.held.alt { background: transparent; color: var(--accent); border: 2px dashed var(--accent); }
 .thumbcell { display: flex; flex-direction: column; align-items: stretch; }
 .thumbcell .k { height: var(--k); }
 .thumbcell .tn { font-size: 10px; color: var(--accent); text-align: center; font-weight: 600; }
@@ -203,20 +208,45 @@ SETUP = """
 </ol>
 <h3>2. Turn on the Fn key (Karabiner)</h3>
 <p>Holding <b>C</b> or <b>,</b> sends F18. Karabiner turns F18 into the Mac's real <b>Fn / 🌐</b> key, so 🌐+F (full
-screen), Fn+← (Home), window tiling, emoji and dictation all work. ZMK can't send a real Fn by itself: a Mac only accepts
-Fn from Apple-made keyboards.</p>
+screen), 🌐+E (emoji), Fn+← (Home) and window tiling (🌐⌃ + arrows) work. On the arrows layer (hold L2), C is Fn too,
+so the order you press them in doesn't matter. ZMK can't send a real Fn by itself: a Mac only accepts Fn from
+Apple-made keyboards.</p>
 <ol>
-  <li>The <code>karabiner/</code> folder in this repo <i>is</i> Karabiner's settings folder. On a new Mac, link it once:<br>
-      <code>mv ~/.config/karabiner ~/.config/karabiner.old; ln -s ~/projects/Mano-zmk/karabiner ~/.config/karabiner</code></li>
+  <li>Install <a href="https://karabiner-elements.pqrs.org/">Karabiner-Elements</a>, open it once and allow what it asks
+      for (driver extension, Input Monitoring).</li>
+  <li>The <code>karabiner/</code> folder in this repo <i>is</i> Karabiner's settings folder. Link it once (Karabiner's docs
+      require the restart at the end):<br>
+      <code>mkdir -p ~/.config; mv ~/.config/karabiner ~/.config/karabiner.old; ln -s ~/projects/Mano-zmk/karabiner ~/.config/karabiner;
+      launchctl kickstart -k gui/$(id -u)/org.pqrs.service.agent.Karabiner-Console-User-Server</code></li>
   <li>Karabiner-Elements → Settings → <b>Devices</b>: the keyboard shown as <b>Corne</b> or <b>Lily58</b>
       (maker "ZMK Project") must have <b>Modify events</b> switched on. The repo's config switches it on; check it once.</li>
-  <li>Test: open <b>Karabiner-EventViewer</b> and hold C. You should see <code>fn</code>. Then try 🌐+F in any window.</li>
+  <li>Test: open <b>Karabiner-EventViewer</b>, hold C and press ←. You should see <code>fn</code> with
+      <code>left_arrow</code>. Holding C on its own shows nothing: the keyboards' Fn only works together with another
+      key, so a long press of C never switches your input source by accident.</li>
   <li>F1–F12 on the keyboards stay real F-keys (the config says so for these keyboards). For media keys, hold L1+L2 or R1+R2.</li>
   <li>On a Mac without this Karabiner config, holding C or , does nothing extra; tapping still types c and ,.</li>
 </ol>
-<h3>3. Choose what a single tap of Fn does</h3>
-<p>System Settings → Keyboard → <b>Press 🌐 key to</b> (on this Mac: <i>Change Input Source</i>). Pick <i>Show Emoji &amp;
-Symbols</i> or <i>Start Dictation</i> if you prefer.</p>
+<p>A single tap of the laptop's own 🌐 key still does what System Settings → Keyboard → <b>Press 🌐 key to</b> says
+(on this Mac: <i>Change Input Source</i>).</p>
+</div>
+
+<h2>Change keys in the browser (ZMK Studio)</h2>
+<div class="steps card">
+<ol>
+  <li>Plug the keyboard's <b>left</b> half in by USB. Only the left half runs Studio, and a browser can reach it over
+      USB only (the ZMK Studio desktop app can also use Bluetooth).</li>
+  <li>Open <a href="https://zmk.studio/">zmk.studio</a> in <b>Chrome</b> or <b>Edge</b> (not Safari or Firefox),
+      choose USB and pick the keyboard.</li>
+  <li><b>Unlock</b> it on the keyboard: hold <b>L1 + L2</b> (or R1 + R2) for a moment, then press <b>G</b>
+      ("studio unlock"). On the Lily58, holding R2 and pressing the number-row key above Q also works. It locks
+      again after 10 minutes without Studio activity, or when you close the tab or unplug.</li>
+  <li>Click a key, choose what it should do, then <b>Save</b>.</li>
+</ol>
+<p><b>Good to know:</b> Studio changes are stored only on that one keyboard. They don't reach the other keyboard,
+<code>config/layout.dtsi</code> or this page, and firmware you flash later keeps the Studio version until you click
+<b>Restore Stock Settings</b>. To make a change permanent on both keyboards, put it in <code>config/layout.dtsi</code>.
+Studio also can't change the combos, the two-thumb Media rule, hold timings, or the Fn hold on C and , (current ZMK
+Studio refuses F13–F24).</p>
 </div>
 """
 
@@ -242,7 +272,7 @@ def main():
         if held:
             rule_rows.append(f"<tr><td>Hold {html.escape(how)}</td><td>{html.escape(layer['about'])}</td></tr>")
         parts.append(f'<div class="layer"><h3>{html.escape(title)} · {html.escape(layer["name"])}</h3>'
-                     f'<p>{html.escape(layer["about"])}</p>{board_html(layer, base, held)}</div>')
+                     f'<p>{html.escape(layer["about"])}</p>{board_html(layer, base, held, sum(alts, []))}</div>')
     page = f"""<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Keyboard layout: Corne + Lily58</title><style>{CSS}</style></head><body>

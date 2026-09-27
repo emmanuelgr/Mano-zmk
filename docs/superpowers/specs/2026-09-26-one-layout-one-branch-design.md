@@ -34,6 +34,7 @@ Lily58:      L4  L3  L2  L1   |   R1  R2  R3  R4      (L4, R4 unused)
 - **Removed:** the Corne's home-row mods, and the F-keys from the L1/R1 layers. F-keys now live in one place only, above the numbers.
 - **Small additions:** **Caps Lock = hold L1 + A** (a free key just left of ⇧). ⏎ on M and PrtSc on N in the arrows layer. The Lily58 keeps its number row and its number-row extras (volume, brightness, bootloader, Studio unlock).
 - **Bluetooth:** 3 slots on both keyboards. The Lily58 drops slots 4 and 5.
+- **After the pre-push review (2026-09-26):** C on the arrows layer (L2) is Fn too, so Fn+arrows works in any order. Bluetooth 1–3 and clear sit on the Media layer's bottom row (X C V B), away from the mouse keys. The keyboards' Fn is `lazy` in Karabiner: it only acts together with another key.
 - **How the two-thumb hold works:** ZMK `conditional_layers`. While the L1 (or R1) layer and the L2 (or R2) layer are both on, the Media layer turns on. I checked that this works in current ZMK `main`. The Media layer must be numbered above the layers it depends on, or keys get hidden; the build will order them that way. Numbers use a single thumb (L3/R3) because they're used far more often than media or Bluetooth.
 
 ## The repo afterwards (`main` only)
