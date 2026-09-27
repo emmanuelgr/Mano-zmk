@@ -1,22 +1,29 @@
-# This file generates the GitHub Actions matrix
-# For simple board + shield combinations, add them
-# to the top level board and shield arrays, for more
-# control, add individual board + shield combinations to
-# the `include` property, e.g:
-#
-# board: [ "nice_nano//zmk" ]
-# shield: [ "corne_left", "corne_right" ]
-# include:
-#   - board: bdn9_rev2
-#   - board: nice_nano//zmk
-#/tshield: reviung41
-#
+# Every keyboard in this repo, built in one GitHub Actions run.
+# Download the "firmware" artifact from the run to get all .uf2 files.
+# The layout is in config/layout.dtsi (shared by the Corne and the Lily58).
 
 include:
+  # Corne (left half is the central half and runs ZMK Studio)
   - board: nice_nano//zmk
     shield: corne_left
     snippet: studio-rpc-usb-uart
   - board: nice_nano//zmk
     shield: corne_right
+
+  # Lily58 (left half is the central half and runs ZMK Studio)
+  - board: nice_nano//zmk
+    shield: lily58_left
+    snippet: studio-rpc-usb-uart
+  - board: nice_nano//zmk
+    shield: lily58_right
+
+  # Settings reset (ZMK's built-in one; works for both keyboards)
   - board: nice_nano//zmk
     shield: settings_reset
+
+  # mano (config/boards/shields/mano) is not built: its build has failed since
+  # Aug 2026 (CONFIG_WS2812_STRIP no longer exists in ZMK). Fix it, then uncomment.
+  # - board: xiao_ble//zmk
+  #   shield: mano_left
+  # - board: xiao_ble//zmk
+  #   shield: mano_right
