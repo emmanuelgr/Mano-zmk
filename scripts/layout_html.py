@@ -3,15 +3,19 @@
 
 Run from the repo root after changing config/layout.dtsi:
     python3 scripts/layout_html.py
-Standard library only. The page shows every layer (the keys both keyboards
-share, plus the Lily58's number row) and the one-time Mac setup steps.
+Standard library only. The page shows a shortcut list (every way to get
+backspace, arrows, mods, media keys ... worked out from the layers), every
+layer (the keys both keyboards share, plus the Lily58's number row) and the
+one-time Mac setup steps.
 """
 import html
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "config" / "layout.dtsi"
+POS = ROOT / "config" / "corne.keymap"   # combo key numbers (POS_K ...) use the Corne's 42-key numbering
 OUT = ROOT / "docs" / "layout.html"
 
 THUMBS = ["L3", "L2", "L1", "R1", "R2", "R3"]      # key positions 36..41
@@ -158,6 +162,157 @@ def board_html(layer, base, held, alts=()):
     return f'<div class="kb">{"".join(cells)}</div>'
 
 
+def parse_combos(text):
+    """-> [(key positions, binding)] for every combo in layout.dtsi."""
+    pos = {m.group(1): int(m.group(2)) for m in re.finditer(r"#define\s+(POS_\w+)\s+(\d+)", POS.read_text())}
+    combos = []
+    for m in re.finditer(r"combo_\w+\s*\{([^}]*)\}", text):
+        body = m.group(1)
+        keys = re.search(r"key-positions\s*=\s*<([^>]*)>", body).group(1).split()
+        binding = " ".join(re.search(r"bindings\s*=\s*<([^>]*)>", body).group(1).split())
+        combos.append(([pos[k] if k in pos else int(k) for k in keys], binding))
+    return combos
+
+
+def key_name(base, p):
+    """What is printed on key p of the base layer (thumbs by their name)."""
+    return THUMBS[p - 36] if p >= 36 else label(base[p])[0]
+
+
+def kbd(s):
+    return f"<kbd>{html.escape(s)}</kbd>"
+
+
+def tap_target(b):
+    """The binding a plain tap of b produces."""
+    beh, *a = b[1:].split()
+    return f"&kp {a[1]}" if beh in ("lt", "fnh") else b
+
+
+# The shortcut list: (group, [(what you want, [bindings that give it])]). "ALT+&kp BSPC" means: a layer
+# where an Alt key and backspace are both under your fingers while one thumb is held.
+SHORTCUTS = [
+    ("Editing", [
+        ("⌫ backspace", ["&kp BSPC"]),
+        ("⌦ forward delete", ["&kp DELETE"]),
+        ("⌥⌫ delete the word before", ["ALT+&kp BSPC"]),
+        ("⌘⌫ delete to the start of the line", ["GUI+&kp BSPC"]),
+        ("⌥⌦ delete the word after", ["ALT+&kp DELETE"]),
+        ("⏎ enter", ["&kp RETURN"]),
+        ("esc", ["&kp ESC"]),
+        ("tab", ["&kp TAB"]),
+        ("caps lock", ["&kp CAPS"]),
+    ]),
+    ("Moving around", [
+        ("← ↓ ↑ → arrows", ["&kp LEFT", "&kp DOWN", "&kp UP", "&kp RIGHT"]),
+        ("Home / End", ["&kp HOME", "&kp END"]),
+        ("Page up / down", ["&kp PG_UP", "&kp PG_DN"]),
+        ("Print screen", ["&kp PRINTSCREEN"]),
+    ]),
+    ("Modifiers", [
+        ("⌘ command", ["&kp LGUI", "&kp RGUI"]),
+        ("⌥ option", ["&kp LALT", "&kp RALT"]),
+        ("⇧ shift", ["&kp LSHFT", "&kp RSHFT"]),
+        ("⌃ control", ["&kp LCTRL", "&kp RCTRL"]),
+        ("🌐 Fn (needs Karabiner, see below)", ["&kp F18"]),
+    ]),
+    ("Numbers, F-keys, symbols", [
+        ("1 2 3 4 5", [f"&kp N{i}" for i in range(1, 6)]),
+        ("6 7 8 9 0", [f"&kp N{i}" for i in (6, 7, 8, 9, 0)]),
+        ("F1 … F6", [f"&kp F{i}" for i in range(1, 7)]),
+        ("F7 … F12", [f"&kp F{i}" for i in range(7, 13)]),
+        ("- =", ["&kp MINUS", "&kp EQUAL"]),
+        ("\\ |", ["&kp BSLH", "&kp PIPE"]),
+        ("` ~", ["&kp GRAVE", "&kp TILDE"]),
+    ]),
+    ("Mouse", [
+        ("move ← ↓ ↑ →", ["&mmv MOVE_LEFT", "&mmv MOVE_DOWN", "&mmv MOVE_UP", "&mmv MOVE_RIGHT"]),
+        ("scroll ← → ↑ ↓", ["&msc SCRL_LEFT", "&msc SCRL_RIGHT", "&msc SCRL_UP", "&msc SCRL_DOWN"]),
+        ("click left / right / middle", ["&mkp LCLK", "&mkp RCLK", "&mkp MCLK"]),
+    ]),
+    ("Media", [
+        ("🔅 🔆 brightness", ["&kp C_BRI_DN", "&kp C_BRI_UP"]),
+        ("Mission Control / Spotlight", ["&kp LC(UP)", "&kp LG(SPACE)"]),
+        ("⏮ ⏯ ⏭", ["&kp C_PREV", "&kp C_PP", "&kp C_NEXT"]),
+        ("🔇 🔉 🔊", ["&kp C_MUTE", "&kp C_VOL_DN", "&kp C_VOL_UP"]),
+    ]),
+    ("The keyboard itself", [
+        ("Bluetooth: device 1 / 2 / 3", ["&bt BT_SEL 0", "&bt BT_SEL 1", "&bt BT_SEL 2"]),
+        ("Bluetooth: forget the current device", ["&bt BT_CLR"]),
+        ("unlock ZMK Studio", ["&studio_unlock"]),
+        ("bootloader (to flash)", ["&bootloader"]),
+        ("restart", ["&sys_reset"]),
+    ]),
+]
+
+
+def collect_ways(layers, layer_index, rules, combos):
+    """binding -> [(kind, holds, press)]: every way the layout produces that binding.
+    kind: tap (a plain key), combo (two keys together), holdkey (hold a letter), layer (hold thumb(s) + key).
+    holds: thumb names to hold, alternatives as a tuple. press: HTML for the key(s) to press."""
+    base = layers[0]["core"]
+    ways = {}
+
+    def add(target, *way):
+        ways.setdefault(target, []).append(way)
+
+    for p, b in enumerate(base):
+        beh = b[1:].split()[0]
+        if beh in ("mo", "none", "trans"):
+            continue
+        add(tap_target(b), "tap", (), kbd(key_name(base, p)))
+        if beh == "fnh":
+            add(f"&kp {b.split()[1]}", "holdkey", (), kbd(key_name(base, p)))
+    for keys, b in combos:
+        add(b, "combo", (), "+".join(kbd(key_name(base, k)) for k in keys))
+    for layer in layers[1:]:
+        held, alts = held_thumbs(layer, layer_index, rules, base)
+        holds = tuple("+".join(THUMBS[p - 36] for p in g) for g in [held] + alts)
+        core = layer["core"]
+        for p, b in enumerate(core):
+            if b not in ("&trans", "&none"):
+                add(b, "layer", holds, kbd(key_name(base, p)))
+        for mod, names in (("ALT", ("&kp LALT", "&kp RALT")), ("GUI", ("&kp LGUI", "&kp RGUI"))):
+            for mp in [p for p, b in enumerate(core) if b in names][:1]:
+                for target in ("&kp BSPC", "&kp DELETE"):
+                    for tp in [p for p, b in enumerate(core) if b == target][:1]:
+                        add(f"{mod}+{target}", "layer", holds,
+                            f"{kbd(key_name(base, mp))} + {kbd(key_name(base, tp))}")
+    return ways
+
+
+def row_html(ways, targets):
+    singles, by_holds = [], {}
+    for t in targets:
+        for kind, holds, press in ways.get(t, []):
+            if kind == "layer":
+                presses = by_holds.setdefault(holds, [])
+                if press not in presses:
+                    presses.append(press)
+            else:
+                singles.append({"tap": f"tap {press}", "combo": f"{press} <small>together</small>",
+                                "holdkey": f"hold {press}"}[kind])
+    by_press = {}   # the same key(s) under several thumbs -> one entry
+    for holds, presses in by_holds.items():
+        by_press.setdefault(" ".join(presses), []).extend(holds)
+    return " &nbsp;·&nbsp; ".join(singles + [f"hold {' / '.join(kbd(h) for h in holds)} + {press}"
+                                            for press, holds in by_press.items()])
+
+
+def shortcuts_html(ways):
+    groups = []
+    for group, rows in SHORTCUTS:
+        trs = []
+        for what, targets in rows:
+            how = row_html(ways, targets)
+            if not how:
+                print(f"warning: no key gives {what!r} ({targets}); check SHORTCUTS", file=sys.stderr)
+                how = "—"
+            trs.append(f"<tr><td>{html.escape(what)}</td><td>{how}</td></tr>")
+        groups.append(f'<div><h3>{html.escape(group)}</h3><table>{"".join(trs)}</table></div>')
+    return f'<h2>Shortcuts</h2><div class="card sc">{"".join(groups)}</div>'
+
+
 CSS = """
 :root { --bg:#f5f5f7; --card:#fff; --line:#d1d1d6; --soft:#e5e5e7; --text:#1d1d1f; --dim:#86868b;
         --faint:#aeaeb2; --accent:#0071e3; --mod:#ff9f0a; --k:48px; }
@@ -191,6 +346,11 @@ td:first-child { font-weight: 600; white-space: nowrap; }
 .thumbcell .tn { font-size: 10px; color: var(--accent); text-align: center; font-weight: 600; }
 .legend span { display: inline-block; padding: 1px 8px; border-radius: 6px; margin-right: 8px; font-size: 13px; }
 code { background: var(--soft); padding: 1px 5px; border-radius: 5px; font-size: 13px; }
+kbd { display: inline-block; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; padding: 0 6px;
+      background: var(--card); font: 600 12px/1.6 inherit; margin: 1px 0; white-space: nowrap; }
+.sc { display: flex; flex-wrap: wrap; gap: 18px 40px; max-width: 1400px; }
+.sc h3 { margin-bottom: 6px; } .sc table { font-size: 14px; } .sc td { padding: 3px 14px 3px 0; line-height: 1.7; }
+.sc td:first-child { font-weight: 500; } .sc small { color: var(--dim); font-size: 12px; }
 ol li, ul li { margin: 4px 0; } .steps { max-width: 900px; }
 """
 
@@ -261,6 +421,9 @@ def main():
     LAYER_ORDER = {layer["node"]: i for i, layer in enumerate(layers)}
     base = layers[0]["core"]
     BASE_NUM = layers[0]["num"]
+    combos = parse_combos(text)
+    combo_text = " · ".join(f"{'+'.join(key_name(base, k) for k in keys)} {label(b)[0]}" for keys, b in combos)
+    shortcuts = shortcuts_html(collect_ways(layers, layer_index, rules, combos))
     rule_rows = []
     parts = []
     for layer in layers:
@@ -285,7 +448,8 @@ middle outward (the Lily58's extra outer thumb keys L4 / R4 are unused).</p>
 <p class="legend" style="margin:10px 0 0"><span style="background:var(--accent);color:#fff">thumb you hold</span>
 <span style="background:rgba(255,159,10,.16);border:1px solid var(--mod)">⌘ ⌥ ⇧ ⌃</span>
 <span style="color:var(--faint)">grey = types the normal key</span>
-Combos (plain typing, after a short pause): S+D esc · D+F tab · J+K ⏎ · K+L ⌫ · L+; ⌦</p></div>
+Combos (plain typing, after a short pause): {html.escape(combo_text)}</p></div>
+{shortcuts}
 <h2>Layers</h2>
 <div class="grid">{''.join(parts)}</div>
 {SETUP}
